@@ -1,0 +1,2359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0050)http://dictionary.reference.com/browse/raybans?s=t -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://opengraphprotocol.org/schema/"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" async="" src="./Raybans   Define Raybans at Dictionary.com_files/search.js"></script><script type="text/javascript" async="" src="./Raybans   Define Raybans at Dictionary.com_files/p-51zXP5Cc9sxvQ.js"></script><script type="text/javascript" async="" src="./Raybans   Define Raybans at Dictionary.com_files/lgrt"></script><script type="text/javascript" async="" src="./Raybans   Define Raybans at Dictionary.com_files/ga.js"></script><script async="" type="text/javascript" src="./Raybans   Define Raybans at Dictionary.com_files/gpt.js"></script><script type="text/javascript" async="" src="http://cdn.krxd.net/controltag?confid=JIF4ixEp"></script><script async="" src="./Raybans   Define Raybans at Dictionary.com_files/async-ads.js"></script><script type="text/javascript">
+UrlHelper = function() {
+var COOKIE_DOMAIN_THESAURUS = '.thesaurus.com';
+var COOKIE_DOMAIN_DICTIONARY = '.dictionary.com';
+var COOKIE_DOMAIN_REFERENCE = '.reference.com';
+var domain = null;
+var currentURL = null;
+var spanidsUrl = null;
+function getSpanidsUrl(bid, sid, currentDomain) {
+var url = 'http://';
+var source = '';
+if(currentDomain == COOKIE_DOMAIN_DICTIONARY) {
+url += 'spanids.reference.com/?';
+source = 'd';
+} else if (currentDomain == COOKIE_DOMAIN_REFERENCE){
+url += 'spanids.dictionary.com/?';
+source = 'r';
+} else {
+url += 'spanids.dictionary.com/?';
+source = 't';
+}
+url += 'bid=' + bid + '&asid=' + sid + '&bidnew=1&asidnew=1&source=' + source + '&site=app';
+return url;
+}
+function getCurrentDomain() {
+var host = window.location.host;
+var value = "";
+if(host.indexOf(COOKIE_DOMAIN_THESAURUS) > -1) {
+value = COOKIE_DOMAIN_THESAURUS;
+} else if(host.indexOf(COOKIE_DOMAIN_DICTIONARY) > -1) {
+value = COOKIE_DOMAIN_DICTIONARY;
+} else if(host.indexOf(COOKIE_DOMAIN_REFERENCE) > -1){
+value = COOKIE_DOMAIN_REFERENCE;
+}
+return value;
+}
+return {
+getCurrentDomain : function() {
+if(domain === null) {
+domain = getCurrentDomain();
+}
+return domain;
+},
+getCurrentUrl : function() {
+if(currentURL === null) {
+currentURL = window.location.protocol + "//" + window.location.host + "" + window.location.pathname;
+}
+return currentURL;
+},
+getSpanidsUrl : function(bid, sid, domain) {
+if(spanidsUrl === null) {
+spanidsUrl = getSpanidsUrl(bid, sid, domain);
+}
+return spanidsUrl;
+}
+}
+}();
+cookiesManager = function (){
+return {
+getCookieValue : function(name) {
+var value = null;
+var cookies = document.cookie;
+var searchedCookie = cookies.indexOf(" " + name + "=");
+// it's worth to check, if cookie is not first cookie
+if(searchedCookie == -1) {
+var checkFirstCookie = cookies.indexOf(name + "=");
+searchedCookie = checkFirstCookie == 0 ? 0 : -1;
+}
+if(searchedCookie > -1) {
+var startPositionOfValue = cookies.indexOf("=", searchedCookie) + 1;
+var endPositionOfValue = cookies.indexOf(";", searchedCookie);
+if(endPositionOfValue == -1) {
+endPositionOfValue = searchedCookie.length;
+}
+value = cookies.substring(startPositionOfValue,endPositionOfValue);
+}
+return value;
+},
+setCookie: function(name, value, hours) {
+var now = new Date();
+var time = now.getTime();
+time += (3600 * hours) * 1000;
+now.setTime(time);
+document.cookie =
+name + '=' + value +
+';expires=' + now.toGMTString() +
+';path=/' +
+';domain=' + UrlHelper.getCurrentDomain();
+}
+}
+}();
+var BidSidGenerator = function (){
+var COOKIE_NAME_BID = 'bid';
+var COOKIE_NAME_SID = 'sid';
+var newBidCookie = false;
+var newSidCookie = false;
+var bidCookieValue = null;
+var sidCookieValue = null;
+// generates value of bid cookie
+function countCookieValue() {
+var max = 999999;
+var min = 100000;
+var rand = Math.floor(Math.random() * (max - min)) + min;
+var time = new Date().getTime();
+return rand + "-" + time;
+}
+return {
+init:function() {
+bidCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_BID);
+sidCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_SID);
+if(bidCookieValue == null || bidCookieValue.length == 0) {
+var hour = 24 * (365*2); // cookie is set for 2 years
+bidCookieValue = countCookieValue();
+cookiesManager.setCookie(COOKIE_NAME_BID, bidCookieValue, hour);
+newBidCookie = true;
+}
+if(sidCookieValue == null || sidCookieValue.length == 0) {
+sidCookieValue = countCookieValue();
+newSidCookie = true
+}
+var hour = 0.5; // cookie is set for 0.5 hour
+cookiesManager.setCookie(COOKIE_NAME_SID, sidCookieValue, hour);
+},
+propagateCookies : function(){
+if(newBidCookie || newSidCookie) {
+var url = UrlHelper.getSpanidsUrl(bidCookieValue, sidCookieValue, UrlHelper.getCurrentDomain());
+var iframe = '<iframe id="spanids" style="width:1px;height:1px;margin-left:-10000;border:none;" src="' + url + '"></iframe>';
+document.write(iframe);
+}
+}
+}
+}();
+BidSidGenerator.init();
+BidSidGenerator.propagateCookies();
+</script>
+<script type="text/javascript">
+UserController = function() {
+var USER_STATUS_LOGGED_IN = 'L';
+var USER_STATUS_NOT_LOGGED = 'N';
+var COOKIE_NAME_SESS = 'sess';
+var COOKIE_NAME_FAV = 'fav';
+var PREMIUM_STATUS_VALUE = 9;
+var FAV_COOKIE_PREMIUM_STATUS_KEY = 0;
+var FAV_COOKIE_FAV_COUNT_KEY = 1;
+var isLoggedIn = null;
+var isPremium = null;
+var favNumber = null;
+function checkIsUserLoggedIn() {
+var userStatus = USER_STATUS_NOT_LOGGED;
+var sessCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_SESS);
+if(sessCookieValue != null) {
+userStatus = sessCookieValue.charAt(0);
+}
+return userStatus == USER_STATUS_LOGGED_IN ? true : false;
+}
+function checkIfUserIsPremium() {
+var premiumStatus = null;
+var favCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_FAV);
+if(favCookieValue != null) {
+favCookieValue = decodeURIComponent(favCookieValue);
+premiumStatus = favCookieValue.split('|')[FAV_COOKIE_PREMIUM_STATUS_KEY];
+}
+return premiumStatus == PREMIUM_STATUS_VALUE ? true : false;
+}
+function getFavNum() {
+var count = 0;
+var favCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_FAV);
+if(favCookieValue != null) {
+favCookieValue = decodeURIComponent(favCookieValue);
+count = favCookieValue.split('|')[FAV_COOKIE_FAV_COUNT_KEY];
+}
+return count;
+}
+return {
+isLoggedIn : function() {
+if(isLoggedIn === null) {
+isLoggedIn = checkIsUserLoggedIn();
+}
+return isLoggedIn;
+},
+isPremium : function() {
+if(isPremium === null) {
+isPremium = checkIfUserIsPremium();
+}
+return isPremium
+},
+getFavNumber : function() {
+if(favNumber === null) {
+favNumber = getFavNum();
+}
+return favNumber;
+}
+}
+}();
+var mweb=location.search.match(new RegExp("[\?\&]m=([^\&]*)(\&?)","i"));
+if(mweb!=null && mweb[1]){
+if(mweb[1]=="www" || mweb[1]=="www"){
+var now = new Date();
+var time = now.getTime();
+time+= 3600 * 1000;
+now.setTime(time);
+cookiesManager.setCookie("mw","y", now.toGMTString());
+}
+}
+</script>
+<script type="text/javascript">
+var eventName="";
+var qs=location.search.match(new RegExp("[\?\&]s=([^\&]*)(\&?)","i"));
+if(qs!=null && qs[1]){
+if(qs[1]=="t" || qs[1]=="ts"){
+eventName="c&linkid=59wn52";
+}else if(qs[1]=="b" || qs[1]=="bs"){
+eventName="c&linkid=hz0x7d";
+}
+}
+(new Image()).src = "http://track.reference.com/webtrack.gif?st=dict&pn=dic&ab=260:1&ldid=0&qr=raybans&ev=ps"+eventName+"&cb="+Math.floor((Math.random()*899999999)+100000000)+"&ak=1&rf="+encodeURIComponent(document.referrer);
+</script>
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="msvalidate.01" content="DF5542D7723770377E9ABFF59AC1DC97">
+<link rel="search" type="application/opensearchdescription+xml" href="http://dictionary.reference.com/opensearch_desc.xml" title="Dictionary.com">
+<link rel="shortcut icon" href="http://static.sfdict.com/en/i/dictionary/newserp/favicon.ico">
+<title>
+Raybans | Define Raybans at Dictionary.com
+</title>
+<!-- Add the following three tags inside head. -->
+<meta property="og:image" content="http://static.sfdict.com/sh/i/dict/social_logo.jpg">
+<meta name="description" content="Raybans definition at Dictionary.com, a free online dictionary with pronunciation, synonyms and translation. Look it up now! ">
+<meta name="keywords" content="raybans, online dictionary, English dictionary, raybans definition, define raybans, definition of raybans, raybans pronunciation, raybans meaning, raybans origin, raybans examples">
+<meta property="og:title" content="the definition of raybans">
+<meta property="og:site_name" content="Dictionary.com">
+<meta property="og:image" content="http://static.sfdict.com/sh/i/dict/social_logo.jpg">
+<meta property="fb:app_id" content="127444090629600">
+<meta property="fb:admins" content="100000304287730,109125464873">
+<link rel="canonical" href="http://dictionary.reference.com/browse/raybans">
+<link rel="stylesheet" href="./Raybans   Define Raybans at Dictionary.com_files/newSerpStylesTopHeavy_ie7.r91724.css" type="text/css">
+<link rel="stylesheet" href="./Raybans   Define Raybans at Dictionary.com_files/gteq1280.css" type="text/css" id="width1280">
+<script type="text/javascript">
+showads=true;
+if(typeof(UserController)!="undefined"){ showads =(UserController.isPremium() && UserController.isLoggedIn())? false: true; }
+hashtable = {};
+hashtable['pagevariables']=["false","","true","","","dynamo.dictionary.com","","true",false,"reference.com","","","false","false","false","","false","dictionary.reference.com","false","dictionary","ask.reference.com","true","dicSerpRedesign2","false","false","dic","app.dictionary.com","app.dictionary.com/login/core","http://static.sfdict.com/en/i/dictionary/newserp/quiz_close.png","http://static.sfdict.com/en/i/dictionary/newserp/cw_out.png","true","true","","false","raybans","dic","false","false",false,"false","false","false","dic","true","false","true"];
+dictionaryConsolidatedCookieList=new Array('dTlb','fC','rh','translangpair','regHP','dyn','freqcp','adblk');dictionaryConsolidatedCookieName='dcc';var elapsedAdRefrshTime = parseInt(10);
+var isResponsiveDesign ="false";var rsSpellSuggest ='false'; var width=screen.width;if(width >=1240){isResponsiveDesign= "true"; };
+if(showads===true){
+(function(G,o,O,g,L,e){G[g]=G[g]||function(){(G[g]['q']=G[g]['q']||[]).push(
+arguments)},G[g]['t']=1*new Date;L=o.createElement(O),e=o.getElementsByTagName(
+O)[0];L.async=1;L.src='//www.google.com/adsense/search/async-ads.js';
+e.parentNode.insertBefore(L,e)})(window,document,'script','_googCsa');
+var page_load_start = new Date();
+}
+_enableOptimizedHotword = true;
+</script>
+<script type="text/javascript">
+var _daisyClickTrackingEnabled = 'true';
+var _daisyClickTrackingStatus = 'on';
+// Daisy Click Event Object
+var DaisyInfo = window.DaisyInfo || {};
+DaisyInfo.clickURL = "click.reference.com";
+DaisyInfo.pickObjConversion = function(po) { return ""+h(po.lk)+"?clksite=dict&clkpage=dic&clkld=260:1&clkorgn=0&clkord="+h(po.io)+"&clkmod="+h(po.m)+"&clkitem="+enc(h(po.pt))+"&clkdest="+h(po.u);};
+DaisyInfo.nonRedirectPickObjConversion = function(po) { return "?site=dict&pageName=dic&ldid=260:1&module="+h(po.m)+"&linkIds="+h(po.lk);};
+</script>
+<script type="text/javascript">
+var _limitedDeployID = "";
+pageVal = {};
+pageVal['pagekey']=["daisyPK","http://dictionary.reference.com","raybans","web","dic","browse",false,false,"http://static.sfdict.com/en/i/dictionary/shared6.png","dicColor","dictionary.reference.com","thesaurus.reference.com","www.reference.com","translate.reference.com"];
+</script>
+<script src="./Raybans   Define Raybans at Dictionary.com_files/dicSerpV5_c.r91834.js" type="text/javascript"></script><script src="data:text/javascript,void 0"></script><script>$gwsynctest= true</script><script></script>
+<script type="text/javascript">if(typeof($.noConflict) == 'function'){$.noConflict();}var $j=jQuery;</script>
+<script type="text/javascript">
+window.page_start_offset = new Date().getTime();
+window.DCOM_LD = "0";
+_gslElapseArr=[];
+_gslElapseArr.push(window.page_start_offset);
+</script>
+<!--dic_dic_browse_short-->
+<script class="kxct" data-id="JIF4ixEp" data-timing="async" data-version="1.9" type="text/javascript">
+window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+(function(){
+var k=document.createElement('script');k.type='text/javascript';k.async=true;
+var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);
+k.src = /^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
+(location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=JIF4ixEp"
+;
+var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+}());
+</script>
+<script type="text/javascript">
+var kruxenabled=true;
+window.Krux || ((Krux = function() {Krux.q.push(arguments);}).q = []);
+(function() {
+function retrieve(n) {
+var m, k = 'kx' + n;
+if (window.localStorage) {
+return window.localStorage[k] || "";
+} else if (navigator.cookieEnabled) {
+m = document.cookie.match(k + '=([^;]*)');
+return (m && unescape(m[1])) || "";
+} else {
+return '';
+}
+}
+Krux.user = retrieve('user');
+Krux.segments = retrieve('segs') && retrieve('segs').split(',') || [];
+})();
+</script>
+<script type="text/javascript">
+if(showads){
+sratest=true;
+var asyncrender=true;
+var gptadslots =[];
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+_sraAdStart=[];
+_sraAdEnd=[];
+(function() {
+var gads = document.createElement("script");
+gads.async = true;
+gads.type = "text/javascript";
+var useSSL = "https:" == document.location.protocol;
+gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+var node =document.getElementsByTagName("script")[0];
+node.parentNode.insertBefore(gads, node);
+})();
+googletag.cmd.push(function() {
+gptadslots[1] = googletag.defineSlot('/23219321/iac.dict.dictry.dw/results/serp_short/content',[[728,90],[970,90]],'ad_top_728x90_0').addService(googletag.pubads()).setTargeting('pos2','728x90_1').setTargeting('tx2','serp_short').setTargeting('tx1','results').setTargeting('ptype','content').setTargeting('pos','top');gptadslots[2] = googletag.defineSlot('/23219321/iac.dict.dictry.dw/results/serp_short/content',[[300,250],[300,600]],'ad_top_300x250_1').addService(googletag.pubads()).setTargeting('pos2','300x250_1').setTargeting('tx2','serp_short').setTargeting('tx1','results').setTargeting('ptype','content').setTargeting('pos','top');gptadslots[3] = googletag.defineSlot('/23219321/iac.dict.dictry.dw/results/serp_short/content',[160,600],'ad_top_160x600').addService(googletag.pubads()).setTargeting('pos2','160x600_1').setTargeting('tx2','serp_short').setTargeting('tx1','results').setTargeting('ptype','content').setTargeting('pos','mid');gptadslots[4] = googletag.defineSlot('/23219321/iac.dict.dictry.dw/results/serp_short/content',[[300,250]],'ad_bottom_300x249').addService(googletag.pubads()).setTargeting('pos2','300x250_2').setTargeting('tx2','serp_short').setTargeting('tx1','results').setTargeting('ptype','content').setTargeting('pos','mid');
+/*ADD PAGE LEVEL TARGETTING VALUES FOR DISPLAY ADS*/
+googletag.pubads().setTargeting("kw","raybans").setTargeting("loc","US").setTargeting("ld","2601");
+googletag.pubads().setTargeting("ref", "organic").setTargeting("lang","en").setTargeting("rpv", "'"+Math.floor((Math.random()*100)+1)+"'").setTargeting("dc_ref", encodeURIComponent(window.location));
+if(typeof(kruxenabled)!='undefined'){
+googletag.pubads().setTargeting("ksg",Krux.segments);
+googletag.pubads().setTargeting("kuid",Krux.user);
+googletag.pubads().setTargeting("khost",encodeURIComponent(location.hostname));
+}
+googletag.pubads().enableSingleRequest();
+googletag.pubads().enableAsyncRendering();
+googletag.enableServices();
+});
+}
+</script>
+<script>
+if(typeof(UserController)!="undefined"){
+if(UserController.isPremium() && UserController.isLoggedIn()){
+$j(document).ready(function() {
+$j("div[id^=ad_]").css("display","none");
+$j("#adcontainer1").css("display","none");
+});
+}
+}
+</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-4036279-9']);
+_gaq.push(['_setDomainName','.reference.com']);
+_gaq.push(['_setAllowHash',false]);
+_gaq.push(['_setAllowLinker',true]);
+_gaq.push(['_setCustomVar',1,'LD','260:1',2]);
+_gaq.push(['_setSiteSpeedSampleRate', 100]);
+if(false){
+var pageviewURL = "/error?page=" + document.location.pathname + document.location.search + "&from=" + document.referrer
+_gaq.push(['_trackPageview', pageviewURL.toString()]);
+}else
+_gaq.push(['_trackPageview']);
+if(true){
+if(false){
+_gaq.push(['_trackEvent','midSerpAd','triggered']);
+}else {
+_gaq.push(['_trackEvent','midSerpAd','not triggered']);
+}
+}
+_gaq.push(['_trackEvent','page loaded','260:1']);
+(function() {
+var ga = document.createElement('script');
+ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com'+ '/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script src="data:text/javascript,void 0"></script><script async="" type="text/javascript" src="./Raybans   Define Raybans at Dictionary.com_files/pubads_impl_40.js"></script></head><body id="promo_serpTo" class="dic_serpto" onload="initpage();">
+<style type="text/css"> #contouter{top: 0px;}</style>
+<div id="popup" style="z-index: 2500; display: none;">
+<div id="pfav" style="z-index: 2495;"></div>
+<div class="pS" style="z-index: 2490;">Added to <a id="favLink1" href="http://app.dictionary.com/favorites">Favorites</a></div>
+</div>
+<div id="wrpT" style="z-index: 2485;">
+<div id="wrapper" style="z-index: 2480;"><div id="contnr" style="z-index: 2475;">
+<div id="hlinT" style="z-index: 2470;">
+<span class="devider"></span> <a class="sel" href="http://dictionary.reference.com/browse/raybans" onmousedown="ask.dict.updateQuery(this,true);daisyTabPK(this,{lk:&#39;tqks0v&#39;,io:&#39;0&#39;,m:&#39;dtab&#39;})" id="dicttab">Dictionary</a><span class="devider thesa"></span>
+<a href="http://thesaurus.com/browse/raybans" onmousedown="ask.dict.updateQuery(this,true);daisyTabPK(this,{lk:&#39;qxnxzj&#39;,io:&#39;0&#39;,m:&#39;ttab&#39;})" id="thestab">Thesaurus</a><span class="devider"></span>
+<a href="http://dynamo.dictionary.com/" onmousedown="ask.dict.updateQuery(this,true);daisyTabPK(this,{lk:&#39;ihzyvr&#39;,io:&#39;0&#39;,m:&#39;dytab&#39;})" id="dynamotab">Word Dynamo</a><span class="devider"></span>
+<a href="http://quotes.dictionary.com/" onmousedown="ask.dict.updateQuery(this,true);daisyTabPK(this,{lk:&#39;wtcrk4&#39;,io:&#39;0&#39;,m:&#39;qtab&#39;})" id="quotestab">Quotes</a><span class="devider"></span>
+<a href="http://www.reference.com/browse/raybans" onmousedown="ask.dict.updateQuery(this,true);daisyTabPK(this,{lk:&#39;rn6y6h&#39;,io:&#39;0&#39;,m:&#39;rtab&#39;})" id="reftab">Reference</a><span class="devider"></span>
+<a href="http://translate.reference.com/translate?query=raybans" onmousedown="ask.dict.updateQuery(this,true);daisyTabPK(this,{lk:&#39;s6ljc3&#39;,io:&#39;0&#39;,m:&#39;trtab&#39;})" id="transtab">Translator</a><span class="devider"></span>
+<a href="http://spanish.dictionary.com/" onmousedown="ask.dict.updateQuery(this,true);daisyTabPK(this,{lk:&#39;kun0fl&#39;,io:&#39;0&#39;,m:&#39;sptab&#39;})" style="border:none" id="spanishtab">Spanish</a><span class="devider"></span>
+</div>
+<div id="tpnvT" style="z-index: 2465;"><a id="loginHeaderLink" style="padding-right:0px;" rel="nofollow" href="http://app.dictionary.com/login/core?source=header_dict&logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%3Fs%3Dt">Log In </a><span class="bar bar1" style="height: 13px;display: inline-block;position: relative;border-left: 1px solid white;left:1px;top:2px;"></span><a id="regLink" rel="nofollow" href="http://app.dictionary.com/signup/core?source=header_dict&logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%3Fs%3Dt"> Sign Up </a><span class="bar bar2" style="height: 13px;display: inline-block;position: relative;border-left: 1px solid white;top:2px;"></span><span class="prmsblT prmsblTn"></span><a onmousedown="return pk(this,{io:0,m:&#39;hrdprem&#39;,ec:1,lk:&#39;bz0r8y&#39;})" href="http://app.dictionary.com/signup/premium?logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%3Fs%3Dt">Premium</a></div>
+</div>
+</div>
+<div id="hdrT" style="z-index: 2460;">
+<div id="wraplogoform" style="z-index: 2455;">
+<div id="logoimg" style="z-index: 2450;">
+<a href="http://dictionary.reference.com/" class="diclogo" onmousedown="return pk(this,{lk:&#39;yg487x&#39;,io:&#39;0&#39;,m:&#39;dkscr&#39;})"><div class="dlogo" title="Dictionary.com" style="z-index: 2445;"></div></a>
+</div>
+<div id="logoform" style="z-index: 2440;">
+<form action="http://dictionary.reference.com/dic" onsubmit="return formcheck();">
+<div class="area-holderT" style="z-index: 2435;">
+<input size="40" value="raybans" id="q" autocomplete="off" type="text" onkeypress="make_blank();" name="q" onclick="make_blank();" onfocus="javascript:this.select();" style="background-image: none;">
+<button type="submit" value=""></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="contouter">
+<div id="flyout" style="display: none; z-index: 2430;">
+<div class="flyt" id="fyt" onmousedown="promourl();" style="z-index: 2425;"><span class="txt">Introducing a cool<br>new way to learn!</span><div class="gear" style="z-index: 2420;"></div></div>
+</div>
+<div id="cwrp" style="z-index: 2415;">
+<div id="snv" style="z-index: 2410;">
+</div>
+<div id="de" style="z-index: 2405;">
+<script type="text/javascript">
+$j(function() {
+var zIndexNumber = 2500;
+$j('div:not(#sftr,#contouter,#hdr,#fancybox-overlay,#fancybox-wrap,#fancybox-outer,.fancybox-bg,#fancybox-content,.grycb,.blcb,#wdcb)').each(function() {
+$j(this).css('zIndex', zIndexNumber);
+zIndexNumber -= 5;
+});
+});
+</script>
+<script type="text/javascript">
+var _todaysDate= "June 11, 2014";
+ask.dict.loggedIn=false;
+var hotwordSerpRD = false;
+ask.dict.isHotWordEnabled = true;
+hotwordSerpRD = true;
+ask.dict.hotWordImgURL = "";
+headerlinkUpdates();
+updatePremiumlink();
+var _sourcepg ="dic_browse";
+var _countryState = "NY_US";
+var _translatemaxlength ="300";
+var _footerShown=false;
+var _impressionlogged = false;
+var pagekey = "dicSerpRedesign2";
+var takeOverEnabled = false;
+var ldtestId ="260:1";
+var csaAttr="260:1";
+var trackads="false";
+</script>
+<script type="text/javascript">
+var quantSegs ='';
+var _qevents = _qevents || [];
+document.getElementById('q').value="raybans";
+var width=document.body.offsetWidth;
+if(width >=1240)
+{
+document.getElementById('width1280').removeAttribute('media');
+}
+</script>
+<script type="text/javascript">
+isIE=true;
+isTlb = false;
+isToolbarInstalled(isIE,isTlb);
+</script><script language="VBScript"> 
+on error resume next 
+keyPresent = IsObject(CreateObject("AskToolBar.SettingsPlugin.1")) 
+</script> 
+
+<center>
+<div id="dmain" style="z-index: 2400;">
+
+
+<div id="results" style="z-index: 2395;">
+<div id="diduno" style="z-index: 2390;"></div>
+<div id="contentResults" style="z-index: 2385;">
+<div id="ad_top_728x90_0" class="banner-ad " style="z-index: 2380;">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('ad_top_728x90_0'); });
+</script>
+<div id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_0" name="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_0__hidden__" name="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div>
+<div id="Headserp" class="Headserp" style="z-index: 2375;">
+<span class="hdrrmn" style="float:left;">
+<span><h1 id="query_h1" class="query_h1">raybans</h1></span>
+<span id="aud" class="aud" title="Listen to the pronunciation of raybans"></span>
+<span title="Add to Favorites">
+<span id="nonfav"></span>
+</span>
+<span id="fcimgh" class="fcimgh">
+</span>
+</span>
+<span class="hdrsc" style="float:left;">
+<span class="mdbt" onmouseover="enablemediabuttons()" style="display: block;"></span>
+<span id="hdmd" class="hdmd">
+<span class="hdfb"></span>
+</span>
+</span>
+</div>
+<div id="midRail" style="z-index: 2370;">
+<div id="rpane" style="z-index: 2365;">
+
+<script type="text/javascript"> var _afcload='false';</script>
+<style type="text/css">#adcontainer1{min-height:108px;}</style>
+<style>
+.spl_unshd{
+position:relative;
+}
+</style>
+<style>
+.slDL{
+font-family: "Verdana";
+font-size: 12px;
+color: #404040;
+line-height:16px;
+}
+</style>
+<div id="adcontainer1" style="z-index: 2360; width: 472px; font-weight: normal; text-align: center; height: 178px; min-height: 0px;"><iframe frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" scrolling="no" width="100%" name="{&quot;name&quot;:&quot;master-1&quot;,&quot;master-1&quot;:{&quot;clicktrackUrl&quot;:&quot;http://click.reference.com/track/click?site=dict&amp;pageName=dic&amp;origin=0&amp;ldid=260:1&amp;module=gslT&amp;linkIds=hvmna&quot;,&quot;container&quot;:&quot;adcontainer1&quot;,&quot;linkTarget&quot;:&quot;_top&quot;,&quot;verticalSpacing&quot;:2,&quot;lines&quot;:3,&quot;colorText&quot;:&quot;#404040&quot;,&quot;colorTitleLink&quot;:&quot;#4089E0&quot;,&quot;colorDomainLink&quot;:&quot;#000000&quot;,&quot;colorBackground&quot;:&quot;#FEFEF4&quot;,&quot;colorAttribution&quot;:&quot;#666666&quot;,&quot;fontFamily&quot;:&quot;verdana&quot;,&quot;fontFamilyAttribution&quot;:&quot;arial&quot;,&quot;fontSizeTitle&quot;:&quot;15px&quot;,&quot;fontSizeDescription&quot;:&quot;12px&quot;,&quot;fontSizeDomainLink&quot;:&quot;14px&quot;,&quot;fontSizeAttribution&quot;:&quot;9px&quot;,&quot;titleBold&quot;:false,&quot;rightHandAttribution&quot;:true,&quot;clickableBackgrounds&quot;:true,&quot;attributionText&quot;:&quot;Ads&quot;,&quot;adIconLocation&quot;:&quot;ad-left&quot;,&quot;lineHeightTitle&quot;:15,&quot;lineHeightDescription&quot;:13,&quot;lineHeightDomainLink&quot;:14,&quot;domainLinkAboveDescription&quot;:true,&quot;plaFormat&quot;:&quot;twoColumn&quot;,&quot;heightConstrained&quot;:true,&quot;width&quot;:&quot;472px&quot;,&quot;detailedAttribution&quot;:false,&quot;type&quot;:&quot;ads&quot;,&quot;columns&quot;:1,&quot;horizontalAlignment&quot;:&quot;left&quot;,&quot;resultsPageQueryParam&quot;:&quot;query&quot;}}" id="master-1" src="./Raybans   Define Raybans at Dictionary.com_files/afs.htm" style="visibility: visible; height: 178px;"></iframe></div>
+<script type="text/javascript">
+var modulearray = new Array();
+modulearray['top']='gslT';modulearray['bot']='gslB';modulearray['mid']='gslM';modulearray['mid1']='gslM1';modulearray['mid2']='gslM2';modulearray['mid3']='gslM3';modulearray['default']='gslT';
+var _adcount =2;
+function getNumberofAds(numAdsmap){
+for(var name in numAdsmap){
+_adcount=numAdsmap[name];
+}
+$j('#adsreceived').append(_adcount);
+}
+function afcgslload(){
+if(typeof _gslElapseArr!='undefined'){
+_gslElapseArr.push(new Date().getTime()-window.page_start_offset);
+}
+}
+var pageOptions ={
+"pubId": "aj-lexico-dict-testing",
+"channel": "channel-01+LD1",
+"query": "raybans",
+"width": "472px",
+"adtest": "off",
+"hl": "en",
+"domainLinkAboveDescription": true,
+"rightHandAttribution": true,
+"attributionText":"Ads",
+'fontFamilyAttribution' : 'arial',
+"fontSizeAttribution":"9px",
+'numRepeated' :0,
+'clickableBackgrounds':true,
+'plusOnes':true,
+'sellerRatings' :true,
+'siteLinks' : true,
+'adPage' :1,
+'detailedAttribution' : false,
+'heightConstrained' : true,
+'colorAttribution' : '#666666',
+'adsResponseCallback':getNumberofAds
+};
+var adblock1= {
+"container": "adcontainer1",
+'verticalSpacing' : 2,
+'longerHeadlines' : false,
+"fontFamily": "verdana",
+"fontSizeTitle": 15,
+"colorTitleLink": "#4089E0",
+"colorBackground": "#FEFEF4",
+"fontSizeDomainLink": 14,
+"colorDomainLink": "#000000",
+"titleBold":false,
+"fontSizeDescription": 12,
+'lineHeightTitle' : 15,
+'lineHeightDescription' : 13,
+'lineHeightDomainLink' : 14,
+//'attributionSpacingBelow' : 5,
+"colorText": "#404040",
+"maxTop":2,
+'clicktrackUrl' : 'http://click.reference.com/track/click?site=dict&pageName=dic&origin=0&ldid=260:1&module='+modulearray['top']+'&linkIds=hvmna',
+'noAdLoadedCallback' : function(containerName, adsLoaded) {
+if (!adsLoaded) {
+if(typeof _gslElapseArr!='undefined'){
+_gslElapseArr.push(new Date().getTime()-window.page_start_offset);
+}
+try {
+$j('#gsldebug').css('display','none');
+_afcload='true';
+$j("#afcdeuginfo").css("display","block");
+$j(document).ready(function(){
+ghostwriter(
+"sfdkf_pt1",
+{
+insertType: "append",
+script: { src: "http://pagead2.googlesyndication.com/pagead/show_ads.js" },
+done:afcgslload()
+}
+);
+});
+} catch (exception) {
+(new Image()).src = "http://click.reference.com/track/gslerror?site=dict&pageName=dic&origin=0&ldid=260:1&error="+exception;
+}
+}
+},
+'adLoadedCallback' : function(containerName, adsLoaded) {
+if (adsLoaded) {
+if(typeof _gslElapseArr!='undefined'){
+_gslElapseArr.push(new Date().getTime()-window.page_start_offset);
+}
+try {
+_gslHeight=$j("#adcontainer1").height();
+if(document.getElementById('adcontainer1')){
+document.getElementById('adcontainer1').style.minHeight='0px';
+}
+daisy_afs_match();
+} catch (exception) {
+(new Image()).src = "http://click.reference.com/track/gslerror?site=dict&pageName=dic&origin=0&ldid=260:1&afserror="+exception;
+}
+}
+}
+};
+_googCsa('ads', pageOptions,adblock1);
+_googCsa('jsLoadedCallback',function(){
+if(typeof _gslElapseArr!='undefined'){
+_gslElapseArr.push(new Date().getTime()-window.page_start_offset);
+}
+});
+var daisyAfsMatchArray = new Array();
+daisyAfsMatchArray['top']=_adcount;
+var afslinkID='hvmna';
+var afsbtmConstantArray = new Array();
+afsbtmConstantArray['top']='gslT';afsbtmConstantArray['bot']='gslB';afsbtmConstantArray['mid']='gslM';afsbtmConstantArray['mid1']='gslM1';afsbtmConstantArray['mid2']='gslM2';afsbtmConstantArray['mid3']='gslM3';
+var DAISYCONST = {
+BLOCK : {key: 'block', value:'spl'},
+TEMPLATE: {key: 'template'},
+MODULES : {key: 'modules'},
+DISPLAY_COUNT : {key: 'displayCount'},
+COMMA_DELIMITER : {value:','},
+URL : {value:'/track/impressionClient'}
+};
+function getafsBlockTemplateModule(daisyAfsMatchArray){
+var block = '';
+var template = '';
+var modules = '';
+var displayCount = 0;
+var btmArray = new Array();
+var count = 0;
+try{
+for (var i in daisyAfsMatchArray) {
+if(count==0){
+block = DAISYCONST.BLOCK.value;
+template = i;
+displayCount = daisyAfsMatchArray[i];
+modules = afsbtmConstantArray[i];
+}else{
+block += DAISYCONST.COMMA_DELIMITER.value + DAISYCONST.BLOCK.value;
+template += DAISYCONST.COMMA_DELIMITER.value + i;
+modules += DAISYCONST.COMMA_DELIMITER.value + afsbtmConstantArray[i];
+displayCount += DAISYCONST.COMMA_DELIMITER.value + daisyAfsMatchArray[i];
+}
+count++;
+}
+btmArray[DAISYCONST.BLOCK.key]= block;
+btmArray[DAISYCONST.TEMPLATE.key]= template;
+btmArray[DAISYCONST.MODULES.key]= modules;
+btmArray[DAISYCONST.DISPLAY_COUNT.key]= displayCount;
+return btmArray;
+}catch(err){
+return new Array();
+}
+}
+function appendURLKeyAndValue(desgURL,key,value){
+if(null!=value && ''!=value){
+if(desgURL.indexOf("?")==-1)
+desgURL= desgURL+"?"+key+"="+value;
+else
+desgURL= desgURL+"&"+key+"="+value;
+}
+return desgURL;
+}
+function daisy_afs_match() {
+var _matchUrl= DAISYCONST.URL.value+"?site=dict&queryId=13DC1A6C63552B0FC8EA1C1327CAD178&pageName=dic&impressionId=U5jvlaAnybYKtJa8&ldid=260:1";
+var btmArray = getafsBlockTemplateModule(daisyAfsMatchArray);
+for (var i in btmArray) {
+_matchUrl = appendURLKeyAndValue(_matchUrl,i,btmArray[i]);
+}
+_gslElapseTime='';
+if(typeof _gslElapseArr!='undefined'){
+for (var i in _gslElapseArr) {
+glslog=_gslElapseArr[i];
+_gslElapseTime+=glslog+"|";
+}
+if(_gslElapseTime!=''){
+_gslElapseTime="&gslElapsedTime="+_gslElapseTime;
+}
+}
+_csaHeight='';
+if(typeof(_gslHeight)!='undefined'){
+_csaHeight="&csaHeight="+_gslHeight;
+}
+_linkIds='';
+if(typeof(afslinkID)!='undefined'){
+_linkIds="&linkIds="+afslinkID;
+}
+var urlPrefix = "http://click.reference.com";
+_matchUrl = urlPrefix + _matchUrl+_linkIds+_csaHeight+_gslElapseTime;
+(new Image()).src= _matchUrl;
+}
+</script>
+
+<script type="text/javascript">
+function ss(w){window.status=w;return true;}
+function cs(){window.status='';}
+</script>
+<style type="text/css">
+.spl_unshd,.nu{
+position:relative;
+}
+</style>
+<style>
+.slDL{
+font-family: "Verdana";
+font-size: 12px;
+color: #404040;
+line-height:16px;
+}
+</style>
+<script language="JavaScript" type="text/javascript">
+var longDescriptionPresent = false;
+var topHeavyCharCount = 60;
+var daisyMatchArray = new Array();
+var modConstantArray = new Array();
+var linkConstantArray = new Array();
+modConstantArray['top']='afcT';modConstantArray['bot']='afcB';modConstantArray['mid']='afcM';modConstantArray['mid1']='afcM1';modConstantArray['mid2']='afcM2';modConstantArray['mid3']='afcM3';
+linkConstantArray['top']='oq6zwg';linkConstantArray['bot']='e8zuyk';linkConstantArray['mid']='tdkbd2';linkConstantArray['mid1']='svydps';linkConstantArray['mid2']='j6rvjh';linkConstantArray['mid3']='u3d5w0';
+function render_ads(position, num, startIdx, endIdx) {
+var s = '';
+if(!num && !window['ajsl_ads']) {
+return;
+}
+var top=true;
+if(position == 'top' || position.indexOf('mid')!=-1){
+top=true;
+}else if(position == 'bot'){
+top=false;
+}
+window['sponsoredResultText'] = '<div class="the_label"></div>'
+var prefix = '\n<div class="spl_unshd_NC" id="'+position+'">';
+window['spLabel'] = 'Ads';
+if(num==1){
+window['spLabel'] = 'Ad';
+}
+var suffix = '</div>';
+var template = '<div class="slL">{label}</div> <div class="slANC" style="cursor:default;"> <a id="gg_{counter}" href="{url}" rel="nofollow" onMouseDown="{pickJavascript}" class="nu1NC" style="width:241px"> <span class="slTNC">{title}</span> </a> <br> <a id="gg_{counter}" href="{url}" rel="nofollow" onMouseDown="{pickJavascript}" class="nu1NC" style="width:241px"> <span class="slBNC">{visibleUrl}</span> </a> <br> <span class="slD">{abstract}</span> </div>';
+s += prefix;
+var ads = window['google_ads'];
+var ajslAds=window['ajsl_ads'];
+var spnrAds=window['spnr_ads'];
+for(var i = 0; i < ads.length;i++) {
+if((ads[i].line2.length+ads[i].line3.length) >= topHeavyCharCount){
+longDescriptionPresent = true;
+break;
+}
+}
+if(ajslAds){
+for(var i = 0; i < ajslAds.length;i++) {
+s += render_inhouse_ad(top,ajslAds , template,i)
+}
+}
+var ec=0;
+for(var i = startIdx, j=0; j<num && i <= endIdx;j++, i++) {
+s += render_ad(top, ads, template, startIdx, i, "gsl", num, 0,j,position);
+ec++;
+}
+if(position=='top' || position=='bot' || position.indexOf('mid')!=-1)
+daisyMatchArray[position]=num;
+window['ad_count_'+position]=ec;
+if(spnrAds){
+for(var i = 0; i < spnrAds.length;i++) {
+s += render_inhouse_ad(top,spnrAds ,template,i,true)
+}
+}
+//reset in house text ads to empty so that it will not be printed in the section where it is not required
+window['ajsl_ads']=null;
+window['spnr_ads']=null;
+s += suffix;
+if(true){
+$j('#sfdkf_pt1').append(s);
+if(typeof _gslElapseArr!='undefined'){
+_gslElapseArr.push(new Date().getTime()-window.page_start_offset);
+}
+if(false){
+_gslElapseArr=[];
+}
+afc_MatchTrack();
+}
+else {
+document.write(s);
+}
+if(false){
+document.getElementById('top').style.borderTop = "none";
+}
+}
+function render_ad(top, ads, template, offset, i, type, ec, set,j,position) {
+var displayAdLabelTop = 'false';
+var labelPosition = 'top';
+var fragment = template;
+var pickLog = "daisyPK(this, {en:'{en}',io:'{io}',b:'spl',tp:'(position)',lk:'{lk}',m:'{m}'}, '{ggid}')";
+if(labelPosition == 'top'){
+if(window['spShadedLabel'] && offset == i && set == 0) {
+fragment = fragment.replace(/\{label\}/, spShadedLabel);
+} else if(window['spLabel'] && (j==0)){
+fragment = fragment.replace(/\{label\}/, spLabel);
+}else {
+fragment = fragment.replace(/\{label\}/,"");
+}
+}else{
+if(window['spShadedLabel'] && offset == i && set == 0) {
+fragment = fragment.replace(/\{label\}/, spShadedLabel);
+} else if(window['spLabel'] && (offset+j == (ads.length - 1) || j == ec-1)){
+fragment = fragment.replace(/\{label\}/, spLabel);
+}else {
+fragment = fragment.replace(/\{label\}/,"");
+}
+}
+for(var k=0;fragment.indexOf("{pickJavascript}")!= -1;k++){
+fragment = fragment.replace(/\{pickJavascript\}/,(ads[i].adType == 'ta')?ads[i].pickJavascript:pickLog);
+fragment = fragment.replace(/\(position\)/,position);
+fragment = fragment.replace(/\{counter\}/,(top?"t_":"b_") + (i+1));
+if(position.indexOf("mid")!=-1){
+fragment = fragment.replace(/\{io\}/,i-offset);
+}else {
+fragment = fragment.replace(/\{io\}/, offset ? offset+i : i);
+}
+}
+fragment = fragment.replace(/\{en\}/g, "gc");
+fragment = fragment.replace(/\{ggid\}/g, "gg_" + (top?"t_":"b_") + (i+1));
+if(_daisyClickTrackingEnabled==='true'){
+fragment = fragment.replace(/\{m\}/g,modConstantArray[position]);
+fragment = fragment.replace(/\{lk\}/g,linkConstantArray[position]);
+}else{
+fragment = fragment.replace(/\{ec\}/g, ec);
+}
+fragment = fragment.replace(/\{url\}/g, ads[i].url);
+fragment = fragment.replace(/\{visibleUrl\}/, ads[i].visible_url.length > 65 ? ads[i].visible_url.substring(0, 65) : ads[i].visible_url);
+if(false){
+fragment = fragment.replace(/\{ncbmwidth\}/,"width:px");
+fragment = fragment.replace(/\{ncbm1width\}/,"width:px");
+}
+ads[i].line1 = highlightQuery(ads[i].line1);
+var dbgInfo="";
+if(false){
+adt = 'afc';
+if(ads[i].adType != null && 'ta' == ads[i].adType){
+adt = 'ta';
+}
+dbgInfo="[id=" + ads[i].n +",type="+adt+"]";
+}
+fragment = fragment.replace(/\{title\}/, dbgInfo+ads[i].line1);
+ads[i].line2 = highlightQuery(ads[i].line2);
+ads[i].line3 = highlightQuery(ads[i].line3);
+if(longDescriptionPresent){
+fragment = fragment.replace(/class=\"slD\"/,"class=\"slDL\"");
+}
+fragment = fragment.replace(/\{abstract\}/, ads[i].line2 + " " + ads[i].line3);
+return fragment;
+}
+function render_inhouse_ad(top, ads, template,i,label) {
+if(!label){
+label= false;
+}
+var fragment = template;
+if(window['spShadedLabel'] && i==window['ad_config_top']+ads.length-1) {
+fragment = fragment.replace(/\{label\}/, spShadedLabel);
+} else if((window['spLabel'] && i==window['ad_config_top']+ads.length-1 ) || label){
+fragment = fragment.replace(/\{label\}/, spLabel);
+}else {
+fragment = fragment.replace(/\{label\}/,"");
+}
+for(var k=0;fragment.indexOf("{pickJavascript}")!= -1;k++){
+fragment = fragment.replace(/\{pickJavascript\}/,ads[i].pickJavascript);
+fragment = fragment.replace(/\(position\)/,"");
+fragment = fragment.replace(/\{counter\}/,"");
+fragment = fragment.replace(/\{io\}/, i);
+}
+fragment = fragment.replace(/\{en\}/g, ads[i].adType);
+fragment = fragment.replace('gg_', ads[i].adType+"_" + i);
+fragment = fragment.replace(/\{ec\}/g, ads.length);
+fragment = fragment.replace(/\{url\}/g, ads[i].url);
+fragment = fragment.replace(/\{visibleUrl\}/, ads[i].visible_url.length > 65 ? ads[i].visible_url.substring(0, 65) : ads[i].visible_url);
+if(false){
+fragment = fragment.replace(/\{ncbmwidth\}/,"width:px");
+fragment = fragment.replace(/\{ncbm1width\}/,"width:px");
+}
+ads[i].line1 = highlightQuery(ads[i].line1);
+var dbgInfo="";
+if(false){
+dbgInfo="[id=" + ads[i].n +",type="+ads[i].adType +"]";
+}
+fragment = fragment.replace(/\{title\}/, dbgInfo+ads[i].line1);
+ads[i].line2 = highlightQuery(ads[i].line2);
+ads[i].line3 = highlightQuery(ads[i].line3);
+if(longDescriptionPresent){
+fragment = fragment.replace(/class=\"slD\"/,"class=\"slDL\"");
+}
+fragment = fragment.replace(/\{abstract\}/, ads[i].line2 + " " + ads[i].line3);
+return fragment;
+}
+var ajslAds=new Array();
+var spnrAds=new Array();
+var repeatAds="true";
+function debug_info_update_render_ads(){
+if(document.getElementById('afc_ads_recieved')){
+var no_of_ads_debug_info = document.createTextNode(google_ads.length);
+document.getElementById('afc_ads_recieved').appendChild(no_of_ads_debug_info);
+}
+}
+function google_ad_request_done(google_ads) {
+debug_info_update_render_ads();
+window['google_ads'] = google_ads;
+inhouseAds = false;
+if(window['google_ads'].length < 4)
+{
+inhouseAds=true;
+}
+getInHouseAds();
+window['ajsl_ads']=ajslAds;
+window['spnr_ads']=spnrAds;
+if(google_ads.length != 0) {
+apply_ad_config(google_ads.length);
+render_ads('top', window['ad_config_top'],window['ad_config_top_startIdx'],window['ad_config_top_endIdx']);
+}
+if(document.getElementById('adcontainer1')){document.getElementById('adcontainer1').style.minHeight='0px';}
+}
+function InHouseAd() {
+this.url = "";
+this.visible_url = "";
+this.line1 = "";
+this.line2 = "";
+this.line3 = "";
+this.pickJavascript = "";
+this.adType = "";
+this.n = "";
+}
+function getInHouseAds()
+{
+if(inhouseAds){
+}
+}
+function apply_ad_config(num) {
+window['ad_config_top'] = Math.min(3, num);
+window['ad_config_mid1'] = window['ad_config_mid2'] = num - window['ad_config_top'];
+window['ad_config_bot'] = 0;
+window['ad_config_top_startIdx'] = 0;
+window['ad_config_top_endIdx'] = window['ad_config_mid1_startIdx'] = window['ad_config_mid2_startIdx'] = window['ad_config_top'];
+window['ad_config_mid1_endIdx'] = window['ad_config_mid2_endIdx'] = num;
+window['ad_config_bot_startIdx'] = window['ad_config_bot_endIdx'] = 0;
+}
+if(false){
+google_ad_client = 'ca-aj-lexico-dict';
+google_ad_channel = 'channel-01+LD1';
+google_ad_output = 'js';
+google_max_num_ads = '2';
+google_page_url = '';
+google_num_ads_recieved= '';
+google_ad_type = 'text';
+google_image_size = '';
+google_language = '';
+google_country = '';
+google_encoding = 'utf8';
+google_safe = 'high';
+google_adtest = 'off';
+google_hints = '';
+google_kw = 'raybans';
+google_kw_type = 'broad';
+google_ad_section = 'default';
+}else{
+google_ad_client = 'ca-aj-lexico-dict';
+google_ad_channel = 'channel-01+LD1';
+google_ad_output = 'js';
+google_ad_type = 'text';
+google_max_num_ads ='2';
+google_safe = 'high';
+google_encoding = 'utf8';
+google_hints = 'raybans';
+google_ad_section='def';
+google_adtest = 'off';
+}
+var word_arr ;
+var word_arr_len ;
+function highlightQuery(input_str) {
+var queryTokenArray = "raybans,";
+var tok_arr = queryTokenArray.split(",");
+for(tok_arr_idx=0; tok_arr_idx < tok_arr.length-1; tok_arr_idx ++) {
+if(isCombinationWord(tok_arr[tok_arr_idx])){
+word_arr = tok_arr[tok_arr_idx].split("-");
+word_arr_len = word_arr.length;
+first_pos = input_str.toLowerCase().indexOf(word_arr[0],0);
+if(first_pos !=-1) {
+input_str = highlightCombinationWords(input_str,first_pos);
+}
+}
+else {
+first_pos = input_str.toLowerCase().indexOf(tok_arr[tok_arr_idx],0);
+if(first_pos != -1) {
+input_str = highlightSimpleWords(input_str,tok_arr[tok_arr_idx],first_pos);
+}
+}
+}
+return input_str;
+}
+function isCombinationWord(word){
+if(word.indexOf("-") != -1){
+return true;
+}else{
+return false;
+}
+}
+function isAlpha(ch) {
+if (ch != null && ch.match(/^[a-zA-Z0-9\<\>]+$/)){
+return true;
+}
+return false;
+}
+function isQueryinInput(firstindex, input_str, j){
+for(i=firstindex; i< input_str.length ; ++i) {
+var currindex = i;
+if(!isAlpha(input_str.charAt(i))) {
+if(firstindex == currindex) {/* 2 consecutive non-alpha characters */
+firstindex++;
+}
+else {
+if(word_arr[j] != input_str.substring(firstindex,currindex).toLowerCase())
+return -1;
+if (j == word_arr_len-1) return currindex;
+else return isQueryinInput(currindex+1,input_str,++j);
+}
+}
+}
+if(j < word_arr_len) {
+if(word_arr[j] != input_str.substring(firstindex,currindex+1).toLowerCase())
+return -1;
+}
+return (currindex + 1) ;
+}
+function highlightCombinationWords(input_str,first_pos) {
+exactmatch = isQueryinInput(first_pos+word_arr[0].length,input_str,1) ;
+if(exactmatch !=-1 ) {
+bold_str = "<b>" + input_str.substring(first_pos,exactmatch) + "</b>";
+input_str = input_str.substring(0,first_pos) + bold_str + input_str.substring(exactmatch);
+next_pos = input_str.toLowerCase().indexOf(word_arr[0],exactmatch+7);
+while(next_pos != -1) {
+return highlightCombinationWords(input_str,next_pos);
+}
+}
+return input_str;
+}
+function highlightSimpleWords(input_str,token, first_pos) {
+var end_pos = first_pos + token.length;
+if(!isAlpha(input_str.charAt(end_pos)) && !isAlpha(input_str.charAt(first_pos-1))){
+bold_str = "<b>" + input_str.substring(first_pos,end_pos) + "</b>";
+input_str = input_str.substring(0,first_pos) + bold_str + input_str.substring(end_pos);
+next_pos = input_str.toLowerCase().indexOf(token,end_pos+7);
+}
+else {
+next_pos = input_str.toLowerCase().indexOf(token,end_pos);
+}
+while(next_pos != -1) {
+return highlightSimpleWords(input_str,token,next_pos);
+}
+return input_str;
+}
+$j("#afcdeuginfo").css("display","none");
+</script>
+<div id="sfdkf_pt1" style="z-index: 2355;"></div>
+<script type="text/javascript">
+(function($){
+$.fn.afcAsync_load = function(){
+ghostwriter(
+"sfdkf_pt1",
+{
+insertType: "append",
+script: { src: "http://pagead2.googlesyndication.com/pagead/show_ads.js" }
+}
+);
+}
+})(jQuery);
+function afc_MatchTrack(){
+var btmConstantArray = new Array();
+btmConstantArray['top']='afcT';btmConstantArray['bot']='afcB';btmConstantArray['mid']='afcM';btmConstantArray['mid1']='afcM1';btmConstantArray['mid2']='afcM2';btmConstantArray['mid3']='afcM3';
+var DAISYCONST = {
+BLOCK : {key: 'block', value:'spl'},
+TEMPLATE: {key: 'template'},
+MODULES : {key: 'modules'},
+LINKIDS : {key: 'linkIds'},
+DISPLAY_COUNT : {key: 'displayCount'},
+COMMA_DELIMITER : {value:','},
+URL : {value:'/track/impressionClient'}
+};
+function getBlockTemplateModule(daisyMatchArray){
+var block = '';
+var template = '';
+var modules = '';
+var linkids = '';
+var displayCount = 0;
+var btmArray = new Array();
+var count = 0;
+try{
+for (var i in daisyMatchArray) {
+if(count==0){
+block = DAISYCONST.BLOCK.value;
+template = i;
+displayCount = daisyMatchArray[i];
+modules = btmConstantArray[i];
+if(typeof(linkConstantArray)!="undefined" && linkConstantArray[i] !="undefined"){
+linkids = linkConstantArray[i];
+}
+}else{
+block += DAISYCONST.COMMA_DELIMITER.value + DAISYCONST.BLOCK.value;
+template += DAISYCONST.COMMA_DELIMITER.value + i;
+modules += DAISYCONST.COMMA_DELIMITER.value + btmConstantArray[i];
+displayCount += DAISYCONST.COMMA_DELIMITER.value + daisyMatchArray[i];
+if(typeof(linkConstantArray)!="undefined" && linkConstantArray[i] !="undefined"){
+linkids+=linkConstantArray[i];
+}
+}
+count++;
+}
+btmArray[DAISYCONST.BLOCK.key]= block;
+btmArray[DAISYCONST.TEMPLATE.key]= template;
+btmArray[DAISYCONST.MODULES.key]= modules;
+btmArray[DAISYCONST.LINKIDS.key]= linkids;
+btmArray[DAISYCONST.DISPLAY_COUNT.key]= displayCount;
+return btmArray;
+}catch(err){
+return new Array();
+}
+}
+function appendURLKeyAndValue(desgURL,key,value){
+if(null!=value && ''!=value){
+if(desgURL.indexOf("?")==-1)
+desgURL= desgURL+"?"+key+"="+value;
+else
+desgURL= desgURL+"&"+key+"="+value;
+}
+return desgURL;
+}
+function daisy_afc_match() {
+var _matchUrl= DAISYCONST.URL.value+"?site=dict&queryId=13DC1A6C63552B0FC8EA1C1327CAD178&pageName=dic&impressionId=U5jvlaAnybYKtJa8&ldid=260:1";
+var btmArray = getBlockTemplateModule(daisyMatchArray);
+for (var i in btmArray) {
+_matchUrl = appendURLKeyAndValue(_matchUrl,i,btmArray[i]);
+}
+_gslElapseTime='';
+if(typeof _gslElapseArr!='undefined'){
+for (var i in _gslElapseArr) {
+glslog=_gslElapseArr[i];
+_gslElapseTime+=glslog+"|";
+}
+if(_gslElapseTime!=''){
+_gslElapseTime="&gslElapsedTime="+_gslElapseTime;
+}
+}
+var urlPrefix = "http://click.reference.com";
+_matchUrl = urlPrefix + _matchUrl+_gslElapseTime;
+(new Image()).src= _matchUrl;
+}
+//call to daisy afc match tracking
+daisy_afc_match();
+}
+</script>
+
+<div style="z-index: 2350;">
+<div class="sep_top shd_hdr pb7" style="z-index: 2345;">
+<div class="KonaBody" style="padding-left: 0px; z-index: 2340;">
+<div class="lunatext results_content frstluna" style="z-index: 2335;">
+<div class="dicTl" style="z-index: 2330;">World English Dictionary</div>
+<table border="0" width="100%" cellspacing="4" cellpadding="3">
+<tbody><tr valign="top" class="tr1"><td colspan="2" class="td1"><b><span id="hotword"><span id="hotword" class="hwc" name="hotword">Raybans</span> </span></b><span id="hotword">&nbsp;<span id="hotword" class="hwc" name="hotword">(ˈreɪˌbænz)</span> </span><a class="questionmark" href="http://dictionary.reference.com/help/luna/IPA_pron_key.html" target="_blank"></a></td></tr>
+<tr valign="top"><td colspan="2">&nbsp;</td></tr>
+<tr valign="top" class="tr2"><td colspan="2" class="td2"><span id="hotword">— </span><b><i><span id="hotword"><span id="hotword" class="hwc" name="hotword">pl</span> <span id="hotword" class="hwc" name="hotword">n</span> </span></i></b> </td></tr>
+<tr valign="top" class="tr3"><td align="right" width="1%" class="td3n1"></td><td class="td3n2"><i><span id="hotword"><span id="hotword" class="hwc" name="hotword">trademark</span> </span></i><span id="hotword">&nbsp;<span id="hotword" class="hwc" name="hotword">a</span> <span id="hotword" class="hwc" name="hotword">brand</span> <span id="hotword" class="hwc" name="hotword">of</span> <span id="hotword" class="hwc" name="hotword">sunglasses</span> </span></td></tr>
+</tbody></table>
+<br>
+</div>
+</div>
+</div>
+<div class="rcr" style="z-index: 2325;">
+Collins English Dictionary - Complete &amp; Unabridged 10th Edition<br>2009 © William Collins Sons &amp; Co. Ltd. 1979, 1986 © HarperCollins<br>Publishers 1998, 2000, 2003, 2005, 2006, 2007, 2009
+<br>
+<a rel="nofollow" href="http://dictionary.reference.com/cite.html?qh=raybans&ia=ced">Cite This Source</a>
+</div>
+<div id="moreFrom" style="z-index: 2320;">
+<div style="z-index: 2315;">
+<div class="title" style="z-index: 2310;">Explore Dictionary.com</div>
+<div class="lists" style="z-index: 2305;">
+<div style="z-index: 2300;">Previous Definition: <a href="http://dictionary.reference.com/browse/rayah" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,0)">rayah</a><br></div>
+<div style="z-index: 2295;">Next Definition: <a href="http://dictionary.reference.com/browse/rayburn" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,1)">rayburn</a><br></div>
+<div style="z-index: 2290;">Words Near: <a href="http://dictionary.reference.com/list/r/ray+side+balfours/70" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,2)">raybans</a></div></div>
+</div>
+<div style="z-index: 2285;">
+<div class="title" style="z-index: 2280;">More from Thesaurus.com</div>
+<div class="lists" style="z-index: 2275;">Synonyms and Antonyms for <a href="http://thesaurus.com/browse/raybans" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,3)">raybans</a></div>
+</div>
+<div style="z-index: 2270;">
+<div class="title" style="z-index: 2265;">More from Reference.com</div>
+<div class="lists" style="z-index: 2260;">Search for articles containing <a href="http://www.reference.com/browse/raybans" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,4)">raybans</a></div>
+</div>
+<div style="z-index: 2255;">
+<div class="title" style="z-index: 2250;">More from Dictionary.com Translator</div>
+<div class="lists" style="z-index: 2245;">
+<div style="z-index: 2240;">Translate <a href="http://translate.reference.com/translate?query=raybans&src=en&dst=fr" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,7)">raybans into French</a><br></div>
+<div style="z-index: 2235;">Translate <a href="http://translate.reference.com/translate?query=raybans&src=en&dst=de" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,8)">raybans into German</a><br></div>
+<div style="z-index: 2230;">Translate <a href="http://translate.reference.com/translate?query=raybans&src=en&dst=it" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,9)">raybans into Italian</a><br></div>
+<div style="z-index: 2225;">Translate <a href="http://translate.reference.com/translate?query=raybans" onmousedown="return pk(this,{lk:&#39;9ex5ke&#39;,m:&#39;moreFrom&#39;},&#39;&#39;,10)">raybans into another language</a></div></div>
+</div>
+</div>
+<style type="text/css">
+#threeRow{display:block; }
+#leftrqn{float:left;width: 35%;}
+#midqn {float:left;width: 35%;}
+#rightrqn{float:left;width: 20%;}
+</style>
+<div id="rltqns" style="z-index: 2220;">
+<div id="relatedQns" style="z-index: 2215;"><span id="hotword"><span id="hotword" class="hwc" name="hotword">Relevant</span> <span id="hotword" class="hwc" name="hotword">Questions</span> </span></div>
+<div id="threeRow" style="z-index: 2210;">
+<div id="leftrqn" style="z-index: 2205;">
+<div class="relelip qn" style="z-index: 2200;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,0)" href="http://ask.reference.com/web?q=What%20Are%20Raybans?&o=100100" style="color: #06C;text-decoration: none;">What Are Raybans?</a></div>
+<div class="relelip qn" style="z-index: 2195;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,3)" href="http://ask.reference.com/web?q=Where%20Are%20Rayban%20Stores%20In%20Nyc?&o=100100" style="color: #06C;text-decoration: none;">Where Are Rayban Stores In Nyc?</a></div>
+</div>
+<div id="midqn" style="z-index: 2190;">
+<div class="relelip qn" style="z-index: 2185;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,1)" href="http://ask.reference.com/web?q=What%20Is%20A%20Rayban%20Crystal%20Lens?&o=100100" style="color: #06C;text-decoration: none;">What Is A Rayban Crystal Lens?</a></div>
+<div class="relelip qn" style="z-index: 2180;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,4)" href="http://ask.reference.com/web?q=When%20Was%20Chloe%20Rayban%20Born?&o=100100" style="color: #06C;text-decoration: none;">When Was Chloe Rayban Born?</a></div>
+</div>
+<div id="rightrqn" style="z-index: 2175;">
+<div class="relelip qn" style="z-index: 2170;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,2)" href="http://ask.reference.com/web?q=How%20Did%20The%20Rayban%20Wayfarer%20Make%20A%20Comeback?&o=100100" style="color: #06C;text-decoration: none;">How Did The Rayban Wayfarer Make A Comeback?</a></div>
+<div class="relelip qn" style="z-index: 2165;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,5)" href="http://ask.reference.com/web?q=What%20Type%20Of%20Rayban%20Wayfarers%20Are%20These?&o=100100" style="color: #06C;text-decoration: none;">What Type Of Rayban Wayfarers Are These?</a></div>
+</div>
+</div>
+<div id="twoRow" style="z-index: 2160;">
+<div id="leftqn" style="z-index: 2155;">
+<div class="relelip qn" style="z-index: 2150;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,0)" href="http://ask.reference.com/web?q=What%20Are%20Raybans?&o=100100" style="color: #06C;text-decoration: none;">What Are Raybans?</a></div>
+<div class="relelip qn" style="z-index: 2145;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,2)" href="http://ask.reference.com/web?q=How%20Did%20The%20Rayban%20Wayfarer%20Make%20A%20Comeback?&o=100100" style="color: #06C;text-decoration: none;">How Did The Rayban Wayfarer Make A Comeback?</a></div>
+</div>
+<div id="rightqn" style="z-index: 2140;">
+<div class="relelip qn" style="z-index: 2135;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,1)" href="http://ask.reference.com/web?q=What%20Is%20A%20Rayban%20Crystal%20Lens?&o=100100" style="color: #06C;text-decoration: none;">What Is A Rayban Crystal Lens?</a></div>
+<div class="relelip qn" style="z-index: 2130;"><a rel="nofollow" class="qna" onmousedown="return pk(this,{lk:&#39;jhm3zj&#39;,io:&#39;0&#39;,m:&#39;relquest&#39;},null,3)" href="http://ask.reference.com/web?q=Where%20Are%20Rayban%20Stores%20In%20Nyc?&o=100100" style="color: #06C;text-decoration: none;">Where Are Rayban Stores In Nyc?</a></div>
+</div>
+</div>
+</div>
+<div id="wordFaq" style="z-index: 2125;">
+<div class="title" style="z-index: 2120;">Dictionary.com Word FAQs</div>
+<p>Dictionary.com presents 366 FAQs, incorporating some of the frequently asked questions from the past with newer queries.</p>
+<div class="lists" style="z-index: 2115;"><a href="http://dictionary.reference.com/help/faq/language/index.html#Differences" onmousedown="return pk(this,{lk:&#39;crvk6&#39;,m:&#39;wordFaq&#39;},&#39;&#39;,0)">Differences</a><br>
+<a href="http://dictionary.reference.com/help/faq/language/index.html#Etymology" onmousedown="return pk(this,{lk:&#39;crvk6&#39;,m:&#39;wordFaq&#39;},&#39;&#39;,1)">Etymology/Origins</a><br>
+<a href="http://dictionary.reference.com/help/faq/language/index.html#Grammar" onmousedown="return pk(this,{lk:&#39;crvk6&#39;,m:&#39;wordFaq&#39;},&#39;&#39;,2)">Grammar/Usage/Style</a><br>
+<a href="http://dictionary.reference.com/help/faq/language/index.html#Spelling" onmousedown="return pk(this,{lk:&#39;crvk6&#39;,m:&#39;wordFaq&#39;},&#39;&#39;,3)">Spelling</a><br>
+<a href="http://dictionary.reference.com/help/faq/language/index.html#Trivia" onmousedown="return pk(this,{lk:&#39;crvk6&#39;,m:&#39;wordFaq&#39;},&#39;&#39;,4)">Trivia</a><br>
+<a href="http://dictionary.reference.com/help/faq/language/index.html#What" onmousedown="return pk(this,{lk:&#39;crvk6&#39;,m:&#39;wordFaq&#39;},&#39;&#39;,5)">What is the Word For...? Where Can I Find...?</a><br>
+<a href="http://dictionary.reference.com/help/faq/language/index.html#question" onmousedown="return pk(this,{lk:&#39;crvk6&#39;,m:&#39;wordFaq&#39;},&#39;&#39;,6)">I have a question that isn't answered here</a></div>
+</div>
+</div>
+<script>
+_init_luna();
+show_sp();
+</script>
+<script type="text/javascript">
+if($j){
+$j('#nonfav').append('<a id="fncyb" href="" ></a>');
+$j('#fncyb').attr("href","http://app.dictionary.com/signup/core?source=favorites&fnCallback=loginuser&callbackAction=addToFav&domaindest=reference.com"+"&logindest="+ enc(window.location)) ;
+}
+</script>
+
+<div style="z-index: 2110;">
+</div>
+<script>
+_init_luna();
+show_sp();
+</script>
+<script type="text/javascript">
+</script>
+
+<script type="text/javascript" language="JavaScript">
+_init_luna();
+show_sp();
+</script>
+<div class="sep_top bottomAd" align="center" style="z-index: 2105;">
+<div id="ad_bottom_300x249" class="box-ad " style="z-index: 2100;">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('ad_bottom_300x249'); });
+</script>
+<div id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_3__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_3" name="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_3" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+</div>
+
+<script type="text/javascript">
+if(ask.dict.isHotWordEnabled){
+ask.dict.enableHotwordLogging = true;
+}
+</script>
+<style type="text/css">
+/*This is done for enabling favorites on page load*/
+#fav,#nonfav{
+display:inline-block;
+}
+._vtad{
+border-top:1px solid #E4E4E4;
+}
+.slL {
+cursor: pointer;
+}
+#macnt
+{
+height: 22px;
+padding-top: 2px;
+height: 20px;
+}
+#Headserp
+{
+margin-top: 8px;
+padding-bottom: 4px;
+}
+.the_content #Headserp{
+margin-top:0px;
+}
+#diduno
+{
+height:21px;
+}
+</style>
+</div>
+</div>
+
+<div id="rightRail" style="margin-bottom: 15px; z-index: 2095;">
+<!--
+word Dynamo Module
+-->
+<div id="quotesboxt" style="z-index: 2090;">
+<div class="qboxt" style="z-index: 2085;">
+<div class="qhdr" style="z-index: 2080;">Quote Of The Day</div>
+<div class="qquote" style="z-index: 2075;">
+<a href="http://quotes.dictionary.com/The_only_rule_is_do_what_you_really" onmousedown="return pk(this,{lk:&#39;k3p087&#39;,io:&#39;0&#39;,m:&#39;rquot&#39;})">"The only rule is, do what you really, impulsively, wish to do. But always act on your own ..."</a>
+</div>
+<div class="qblw" style="z-index: 2070;">
+<div style="z-index: 2065;">
+<span><a class="qtn" href="http://quotes.dictionary.com/author/D.H.+Lawrence" onmousedown="return pk(this,{lk:&#39;rc2wb4&#39;,io:&#39;0&#39;,m:&#39;auth&#39;})">-D.H. Lawrence</a></span>
+<span class="qautia"> </span>
+<div class="qsnmr" style="z-index: 2060;"><a class="nmore" href="http://quotes.dictionary.com/search/raybans" onmousedown="return pk(this,{lk:&#39;j2hdmf&#39;,io:&#39;0&#39;,m:&#39;more&#39;})">MORE</a></div>
+</div>
+</div>
+</div>
+</div>
+<!--
+Display ads1 rightrail Module
+-->
+<div style="margin-top: 15px; text-align: center; padding-bottom: 1px; z-index: 2055;">
+<div id="ad_top_300x250_1" class="box-ad " style="z-index: 2050;">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('ad_top_300x250_1'); });
+</script>
+<div id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_1__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_1" name="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_1" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+</div>
+<!--
+Relatedwords Slang rightrail Module
+-->
+<div id="wrapserp" style="z-index: 2045;"><a id="serppremium" onmousedown="return pk(this,{io:0,m:&#39;prem300&#39;,ec:1,lk:&#39;z016vj&#39;})" href="http://app.dictionary.com/signup/premium?logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans">Enjoy Dictionary.com ad-free! Learn more</a></div>
+<!--
+Idioms rightrail Module
+-->
+<!--
+Images Slider Module
+-->
+<!--
+Quotes Module
+-->
+</div>
+</div><!--reults LD2-->
+</div> <!--results for new serp -->
+<style type="text/css">
+.nmorescr,.nmorescr:visited,.nmore, .nmore:visited,a.more, a.more:hover, a.less, a.less:hover{
+font-weight:normal;
+}
+</style>
+
+<div id="lr" style="z-index: 2040;">
+
+<div class="rbox" style="z-index: 2035;">
+<div class="rboxborder" style="z-index: 2030;">
+<div class="hd" style="z-index: 2025;">Related Searches</div>
+<div id="narrow" style="z-index: 2020;">
+<div id="sM" style="z-index: 2015;">
+<div id="s0" class="elip eD dC" style="z-index: 2010;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/related/Ray+Ban+Wayfarer?qsrc=2892&l=dir&o=100101">Ray ban wayfarer</a></div>
+<div id="s1" class="elip eD dC" style="z-index: 2005;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/related/Discount+Sunglasses+Ray+Ban?qsrc=2892&l=dir&o=100101">Discount sunglasses ray ban</a></div>
+<div id="s2" class="elip eD dC" style="z-index: 2000;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/related/Rayban+Wayfarers?qsrc=2892&l=dir&o=100101">Rayban wayfarers</a></div>
+<div id="s3" class="elip eD dC" style="z-index: 1995;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/related/Cheap+Sunglasses+Ray+Ban?qsrc=2892&l=dir&o=100101">Cheap sunglasses ray ban</a></div>
+</div>
+<div id="aM" style="z-index: 1990;">
+<div id="a0" class="elip eD dC" style="z-index: 1985;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/web?q=Sunglass+Hut&qsrc=2892&l=dir&o=100101">Sunglass hut</a></div>
+<div id="a1" class="elip eD dC" style="z-index: 1980;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/web?q=Oakleys&qsrc=2892&l=dir&o=100101">Oakleys</a></div>
+<div id="a2" class="elip eD dC" style="z-index: 1975;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/web?q=Hollister&qsrc=2892&l=dir&o=100101">Hollister</a></div>
+<div id="a3" class="elip eD dC" style="z-index: 1970;"><a rel="nofollow" class="ey dC" href="http://ask.reference.com/web?q=Asos&qsrc=2892&l=dir&o=100101">Asos</a></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+pklogRelated("sM",{lk:'5k1a4a',io:'3',m:'drs'},"s");
+pklogRelated("aM",{lk:'vfp1o9',io:'7',m:'r1'},"a") ;
+</script>
+
+<div class="nbox " style="z-index: 1965;">
+<div class="hd" style="z-index: 1960;"><span>Nearby Words</span></div>
+<div class="pt10" onclick="ask.dict.nearby.scrollUp()" style="z-index: 1955;">
+</div>
+<div id="nBL" style="z-index: 1950;">
+<div id="nB0" class="elip eD dN" style="z-index: 1945;"><a href="http://dictionary.reference.com/browse/ray+side+balfours?qsrc=2446">ray side balfours</a></div>
+<div id="nB1" class="elip eD dN" style="z-index: 1940;"><a href="http://dictionary.reference.com/browse/ray+spider?qsrc=2446">ray spider</a></div>
+<div id="nB2" class="elip eD dN" style="z-index: 1935;"><a href="http://dictionary.reference.com/browse/ray+spruance?qsrc=2446">ray spruance</a></div>
+<div id="nB3" class="elip eD dN" style="z-index: 1930;"><a href="http://dictionary.reference.com/browse/ray+stannard+baker?qsrc=2446">ray stannard baker</a></div>
+<div id="nB4" class="elip eD dN" style="z-index: 1925;"><a href="http://dictionary.reference.com/browse/ray+tomlinson?qsrc=2446">ray tomlinson</a></div>
+<div id="nB5" class="elip eD dN" style="z-index: 1920;"><a href="http://dictionary.reference.com/browse/ray+town?qsrc=2446">ray town</a></div>
+<div id="nB6" class="elip eD dN" style="z-index: 1915;"><a href="http://dictionary.reference.com/browse/ray+tracing?qsrc=2446">ray tracing</a></div>
+<div id="nB7" class="elip eD dN" style="z-index: 1910;"><a href="http://dictionary.reference.com/browse/ray%2C+john?qsrc=2446">ray, john</a></div>
+<div id="nB8" class="elip eD dN" style="z-index: 1905;"><a href="http://dictionary.reference.com/browse/ray%2C+man?qsrc=2446">ray, man</a></div>
+<div id="nB9" class="elip eD dN" style="z-index: 1900;"><a href="http://dictionary.reference.com/browse/ray%2C+satyajit?qsrc=2446">ray, satyajit</a></div>
+<div id="nB10" class="elip eD dN" style="z-index: 1895;"><a href="http://dictionary.reference.com/browse/ray-burn?qsrc=2446">ray-burn</a></div>
+<div id="nB11" class="elip eD dN" style="z-index: 1890;"><a href="http://dictionary.reference.com/browse/ray-finned+fish?qsrc=2446">ray-finned fish</a></div>
+<div id="nB12" class="elip eD dN" style="z-index: 1885;"><a href="http://dictionary.reference.com/browse/ray-floret?qsrc=2446">ray-floret</a></div>
+<div id="nB13" class="elip eD dN" style="z-index: 1880;"><a href="http://dictionary.reference.com/browse/ray-flower?qsrc=2446">ray-flower</a></div>
+<div id="nB14" class="elip eD dN" style="z-index: 1875;"><a href="http://dictionary.reference.com/browse/ray-gun?qsrc=2446">ray-gun</a></div>
+<div id="nB15" class="elip eD dN" style="z-index: 1870;"><a href="http://dictionary.reference.com/browse/ray-side+balfour%27s?qsrc=2446">ray-side balfour's</a></div>
+<div id="nB16" class="elip eD dN" style="z-index: 1865;"><a href="http://dictionary.reference.com/browse/ray-side+balfours?qsrc=2446">ray-side balfours</a></div>
+<div id="nB17" class="elip eD dB" style="z-index: 1860;"><a href="http://dictionary.reference.com/browse/ray-town?qsrc=2446">ray-town</a></div>
+<div id="nB18" class="elip eD dB" style="z-index: 1855;"><a href="http://dictionary.reference.com/browse/raya?qsrc=2446">raya</a></div>
+<div id="nB19" class="elip eD dB" style="z-index: 1850;"><a href="http://dictionary.reference.com/browse/rayah?qsrc=2446">rayah</a></div>
+<div id="nB20" class="elip eD  dB" style="z-index: 1845;"><a href="http://dictionary.reference.com/browse/raybans?qsrc=2446" class="nearByCurr dicColor">raybans</a></div>
+<div id="nB21" class="elip eD dB" style="z-index: 1840;"><a href="http://dictionary.reference.com/browse/rayburn?qsrc=2446">rayburn</a></div>
+<div id="nB22" class="elip eD dB" style="z-index: 1835;"><a href="http://dictionary.reference.com/browse/rayburn%2C+sam?qsrc=2446">rayburn, sam</a></div>
+<div id="nB23" class="elip eD dB" style="z-index: 1830;"><a href="http://dictionary.reference.com/browse/raye?qsrc=2446">raye</a></div>
+<div id="nB24" class="elip eD dN" style="z-index: 1825;"><a href="http://dictionary.reference.com/browse/rayed?qsrc=2446">rayed</a></div>
+<div id="nB25" class="elip eD dN" style="z-index: 1820;"><a href="http://dictionary.reference.com/browse/rayfinned+fish?qsrc=2446">rayfinned fish</a></div>
+<div id="nB26" class="elip eD dN" style="z-index: 1815;"><a href="http://dictionary.reference.com/browse/rayleigh?qsrc=2446">rayleigh</a></div>
+<div id="nB27" class="elip eD dN" style="z-index: 1810;"><a href="http://dictionary.reference.com/browse/rayleigh+disc?qsrc=2446">rayleigh disc</a></div>
+<div id="nB28" class="elip eD dN" style="z-index: 1805;"><a href="http://dictionary.reference.com/browse/rayleigh+disk?qsrc=2446">rayleigh disk</a></div>
+<div id="nB29" class="elip eD dN" style="z-index: 1800;"><a href="http://dictionary.reference.com/browse/rayleigh+distribution?qsrc=2446">rayleigh distribution</a></div>
+<div id="nB30" class="elip eD dN" style="z-index: 1795;"><a href="http://dictionary.reference.com/browse/rayleigh+scattering?qsrc=2446">rayleigh scattering</a></div>
+<div id="nB31" class="elip eD dN" style="z-index: 1790;"><a href="http://dictionary.reference.com/browse/rayleigh+wave?qsrc=2446">rayleigh wave</a></div>
+<div id="nB32" class="elip eD dN" style="z-index: 1785;"><a href="http://dictionary.reference.com/browse/rayleigh%2C+3rd+baron?qsrc=2446">rayleigh, 3rd baron</a></div>
+<div id="nB33" class="elip eD dN" style="z-index: 1780;"><a href="http://dictionary.reference.com/browse/rayleigh%2C+john+william+strutt%2C+3d+baron?qsrc=2446">rayleigh, john william strutt, 3d baron</a></div>
+<div id="nB34" class="elip eD dN" style="z-index: 1775;"><a href="http://dictionary.reference.com/browse/rayleigh%2C+third+baron?qsrc=2446">rayleigh, third baron</a></div>
+<div id="nB35" class="elip eD dN" style="z-index: 1770;"><a href="http://dictionary.reference.com/browse/rayleigh-disk?qsrc=2446">rayleigh-disk</a></div>
+<div id="nB36" class="elip eD dN" style="z-index: 1765;"><a href="http://dictionary.reference.com/browse/rayleigh-scattering?qsrc=2446">rayleigh-scattering</a></div>
+<div id="nB37" class="elip eD dN" style="z-index: 1760;"><a href="http://dictionary.reference.com/browse/rayleigh-wave?qsrc=2446">rayleigh-wave</a></div>
+<div id="nB38" class="elip eD dN" style="z-index: 1755;"><a href="http://dictionary.reference.com/browse/rayless?qsrc=2446">rayless</a></div>
+<div id="nB39" class="elip eD dN" style="z-index: 1750;"><a href="http://dictionary.reference.com/browse/rayless+chamomile?qsrc=2446">rayless chamomile</a></div>
+<div id="nB40" class="elip eD dN" style="z-index: 1745;"><a href="http://dictionary.reference.com/browse/raylet?qsrc=2446">raylet</a></div>
+<script>
+ask.dict.nearby.totalItems=41;
+ask.dict.nearby.centerCurrent('20');
+pklog("nBL",{lk:'1zv0ht',io:'0',m:'nrb'},"nB")
+</script>
+</div>
+<div class="pt12" onclick="ask.dict.nearby.scrollDown()" style="z-index: 1740;">
+</div>
+</div>
+
+
+<!--
+In-house ads Module
+-->
+<!--
+Sky ad Module
+-->
+<div class="lr_skyad" style="z-index: 1735; top: 198px; position: relative;">
+<div id="ad_top_160x600" class="sykscraper-ad " style="z-index: 1730;">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('ad_top_160x600'); });
+</script>
+<div id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_2__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_2" name="google_ads_iframe_/23219321/iac.dict.dictry.dw/results/serp_short/content_2" width="160" height="600" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+</div>
+
+<div id="ltm" style="z-index: 1725;"><div id="link_to_module" style="top: 1558px; z-index: 1720;"><span class="link_text">Copy &amp; paste this link to your blog or website to reference this page</span><input class="linkbox" onclick="this.select()" value="&lt;a href=http://dictionary.reference.com/browse/raybans /&gt;"></div></div>
+</div>
+<script type="text/javascript">
+var logStickyFooter = false;
+$j = jQuery;
+var eventType = "mousedown";
+var popup = $j("#popup");
+$j('body').delegate('#favLink1','mousedown',function(){
+location.href = "http://app.dictionary.com/favorites";
+}
+);
+$j(document).bind(
+eventType,
+function(){
+popup.hide();
+}
+);
+_favoriteQuery="raybans";
+function redirectToAppcoreForSuperSession(){
+locationString = window.location.toString();
+if(Cookie.isEnabled()){
+Cookie.setCookie("fQ", "raybans", "", "/", "reference.com");
+setDictionaryConsolidatedCookie('fC','*');
+}
+window.location = "http://app.dictionary.com/login/core/?logindest="+enc(locationString);
+}
+function headerChange(){
+var name = appCoreUsername;
+var clklogg = "{lk:'1fk8td',io:'0',m:'hrdupgrd'}";
+if(validDictionaryPremiumUser == "false"){
+$j('#tpnv').html('<a href="http://app.dictionary.com/users/settings">'+'\n'+name+'\n'+'</a><a id="fvlp" style="padding-left:1px;" href="http://app.dictionary.com/favorites"><span class="favL"></span><span id="favLink"></span></a>'+'\n'+'<a href="http://app.dictionary.com/logout?logindest="'+enc(window.location.toString())+' "class="hdrlink" id="favLogout">Log Out </a><a id="upgd" class="hdrlink" href="http://app.dictionary.com/premium?logindest=" onmousedown=\"return pk(this,'+clklogg+')\">Upgrade</a>');
+}
+else if(fbUser=='y'){
+$j('#tpnv').html('<span class="fbuser"></span><span>Hi,</span><a href="http://app.dictionary.com/users/settings">'+'\n'+name+'\n'+'</a><a href="http://app.dictionary.com/favorites"><span class="favL"></span><span id="favLink"></span></a>'+'\n'+'<a href="http://app.dictionary.com/logout?logindest="'+enc(window.location.toString())+' "class="hdrlink" id="favLogout">Log Out</a>');
+}else {
+$j('#tpnv').html('<span>Hi,</span><a href="http://app.dictionary.com/users/settings">'+'\n'+name+'\n'+'</a><a href="http://app.dictionary.com/favorites"><span class="favL"></span><span id="favLink"></span></a>'+'\n'+'<a href="http://app.dictionary.com/logout?logindest="'+enc(window.location.toString())+' "class="hdrlink" id="favLogout">Log Out</a>');
+}
+}
+function makeFooterVisible(){
+var scrollTop = $j(window).scrollTop();
+var bodyHeight = $j('body').height();
+if(scrollTop >= 300 || bodyHeight < 930){
+$j("#sftr").css('visibility','visible');
+if(!logStickyFooter){
+logStickyFooter = true;
+(new Image()).src = 'http://click.reference.com/track/stickyFooter?site=dict&ldid=260:1&pageName=dic';
+}
+}
+}
+$j('body').delegate('#arcnt','mousedown',function(){
+pk(this,{lk:'f1h0vi',io:'0',m:'forec'});
+});
+$j('body').delegate('#afav','mousedown',function(){
+pk(this,{lk:'lwjk79',io:'0',m:'fofav'});
+});
+$j('body').delegate('.ftr_logo','mousedown',function(){
+spk(this,{lk:'28rdro',io:'0',m:'fologo'});
+});
+//variables for fcol
+isspellingProductEmpty = true;
+categoryFordictionaryAd = false
+supressStickyFooterForMobile = false
+$j(window).scroll(function(){
+makeFooterVisible();
+});
+$j(document).ready(function() {
+makeFooterVisible();
+$j("#bfpu>ul>li>.flog").attr("href","http://app.dictionary.com/login/core?source=footer&fnCallback=loginuser&callbackAction=showFavWords&domaindest=reference.com"+"&logindest="+ enc(window.location));
+$j("#brpu>ul>li>.flog").attr("href","http://app.dictionary.com/login/core?source=footer&fnCallback=loginuser&callbackAction=showRecent&domaindest=reference.com"+"&logindest="+ enc(window.location));
+$j("#bfpu>ul>li>.freg").attr("href","http://app.dictionary.com/signup/core?source=footer&fnCallback=loginuser&callbackAction=showFavWords&domaindest=reference.com"+"&logindest="+ enc(window.location));
+$j("#brpu>ul>li>.freg").attr("href","http://app.dictionary.com/signup/core?source=footer&fnCallback=loginuser&callbackAction=showRecent&domaindest=reference.com"+"&logindest="+ enc(window.location));
+registerBottomFavAction();
+});
+</script>
+
+<script type="text/javascript">
+visualThesaurusOnclick();
+if($('macnt') && $('htwt')){
+position = a10.util.findPos($('htwt'));
+y = position[1] + 36;
+y = position[1] + 31;
+$('htwt').style.top = y + 'px';
+}
+</script>
+
+</div> <!--dmain-->
+</center> <!--center that encloses dmain-->
+</div> <!--de-->
+</div> <!--cwrp-->
+<div id="nfotr" style="z-index: 1715;">
+<div class="brftr" style="padding-bottom: 12px; z-index: 1710;">
+<div class="er" style="z-index: 1705;">
+<a class="fdic" href="http://content.dictionary.com/" onmousedown="pk(this,{lk:&#39;20fqrf&#39;,io:&#39;0&#39;,m:&#39;fdic&#39;,pt:&#39;Footer+Dictionary+Logo&#39;});"></a>
+</div>
+</div>
+<div id="nfr" style="z-index: 1700;">
+<div id="suggestWord" style="z-index: 1695;"></div>
+<div class="bllt" style="z-index: 1690;">Copyright ©&nbsp;<span title="Copyright ÃÂ© 2014 Dictionary.com, LLC. All rights reserved.">2014 Dictionary.com, LLC</span>. All rights reserved.</div>
+<div class="blf" style="z-index: 1685;">
+<a target="_top" rel="nofollow" href="http://dictionary.com/about" onmousedown="pk(this,{lk:&#39;y0qla1&#39;,io:&#39;0&#39;,m:&#39;abt&#39;});">About</a>
+<a target="_top" rel="nofollow" href="http://dictionary.com/privacy" onmousedown="pk(this,{lk:&#39;u2afv2&#39;,io:&#39;0&#39;,m:&#39;prvplcy&#39;});">PRIVACY POLICY</a>
+<a target="_top" rel="nofollow" href="http://dictionary.com/terms" onmousedown="pk(this,{lk:&#39;cuhe6x&#39;,io:&#39;0&#39;,m:&#39;trmofuse&#39;});">Terms</a>
+<a target="_top" rel="nofollow" href="http://dictionary.com/careers" onmousedown="pk(this,{lk:&#39;pm7vfr&#39;,io:&#39;0&#39;,m:&#39;careers&#39;});">Careers</a>
+<a target="_top" rel="nofollow" href="http://dictionary.com/mediakit" onmousedown="pk(this,{lk:&#39;bga8c7&#39;,io:&#39;0&#39;,m:&#39;advtus&#39;});">Advertise with Us</a>
+<a rel="nofollow" onmousedown="pk(this,{lk:&#39;lnnyvs&#39;,io:&#39;0&#39;,m:&#39;cnt&#39;});" target="_top" href="http://dictionary.com/contact">Contact Us</a>
+<a rel="nofollow" onmousedown="pk(this,{lk:&#39;vaee9s&#39;,io:&#39;0&#39;,m:&#39;fblg&#39;});" target="_top" href="http://blog.dictionary.com/">Our Blog</a>
+<a target="_top" style="cursor:pointer;" onmousedown="suggestWordAction(&#39;content.dictionary.com&#39;,false)">Suggest a Word</a>
+<a class="npr" target="_top" onmousedown="pk(this,{lk:&#39;ehy6lf&#39;,io:&#39;0&#39;,m:&#39;help&#39;});" rel="nofollow" href="http://dictionary.com/help">Help</a>
+</div>
+</div>
+</div>
+</div> <!--contouter-->
+<div id="sftr">
+<div class="ftwr" style="z-index: 1680;">
+<div class="bfp" id="bfpu" style="z-index: 1675; display: none;">
+<ul>
+<li class="bpt"></li>
+<li style="line-height:14px;">Please <a class="flog" href="http://app.dictionary.com/login/core?source=footer&fnCallback=loginuser&callbackAction=showFavWords&domaindest=reference.com&logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%3Fs%3Dt">Login</a> or <a class="freg" href="http://app.dictionary.com/signup/core?source=footer&fnCallback=loginuser&callbackAction=showFavWords&domaindest=reference.com&logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%3Fs%3Dt">Sign Up</a> to use the Favorites feature</li>
+<li class="bpb"></li>
+</ul>
+</div>
+<div class="bfp" id="brpu" style="z-index: 1670; display: none;">
+<ul>
+<li class="bpt"></li>
+<li style="line-height:14px;">Please <a class="flog" href="http://app.dictionary.com/login/core?source=footer&fnCallback=loginuser&callbackAction=showRecent&domaindest=reference.com&logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%3Fs%3Dt">Login</a> or <a class="freg" href="http://app.dictionary.com/signup/core?source=footer&fnCallback=loginuser&callbackAction=showRecent&domaindest=reference.com&logindest=http%3A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%3Fs%3Dt">Sign Up</a> to use the Recent Searches feature</li>
+<li class="bpb"></li>
+</ul>
+</div>
+<div class="sftc" style="z-index: 1665;">
+<a class="ftr_logo" href="http://dictionary.reference.com/browse/raybans?s=t#de"></a>
+<a class="sfav"><div style="z-index: 1660;"></div><span>FAVORITES</span></a>
+<a class="srec" onmousedown="showRecentPopUp();"><div style="z-index: 1655;"></div><span>RECENT</span></a>
+<form action="http://dictionary.reference.com/dic" onsubmit="return botformcheck()" class="mnfrm">
+<input size="20" value="search dictionary" id="bq" autocomplete="off" type="text" name="q" onclick="make_blank();">
+<button type="submit" value=""></button>
+</form>
+<div class="ftsp" style="position: relative; top: -243px; display: block; left: -20px; height: 250px; width: 300px; z-index: 1650;"><div id="adclose" onmousedown="closead(&#39;ad&#39;);" style="z-index: 1645; display: none; float: right; top: -14px; position: absolute; right: 5px;"></div><div id="slider" style="height: 300px; display: block; z-index: 1640;"></div><div id="stickad" style="position: relative; display: block; z-index: 1635;"></div>
+</div>
+<a class="fCol" onclick="expandorCollpase();" "=""></a>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$j("body").delegate(".srec","mouseenter",function(){showRecentPopUp();
+});
+$j('body').delegate('#sftr','mouseleave',function(){
+$j('#brpu').hide();
+$j('#bfpu').hide();
+});
+</script>
+
+<script>
+var didyouknow = '<div id="macnt" ><span class="wia">Did you know:</span><span class="wiac">Avatar was a blockbuster film, but <a class="lnktxt" href="http:\/\/dictionary.reference.com\/browse\/avatar?qsrc=3086" onmousedown="daisyCT(this,53855,{io:0,m:\'alrtM\',ec:1,lk:\'jwc8dj\'})" onclick="closeThis(13,\'amm\')">what does it mean in Hindu mythology?<\/a></span></div>' ;
+if(false){if($j('#diduno')){$j('#diduno').html(didyouknow);}}
+var linkrefer = '<div id="link_to_module" style="top:1558px;"><span class="link_text">Copy & paste this link to your blog or website to reference this page</span><input class="linkbox" onclick="this.select()" value="<a href=http://dictionary.reference.com/browse/raybans />"></div>';
+if($j('#ltm')){$j('#ltm').html(linkrefer);}
+$j(document).ready(function(){
+playaudio();
+$j(".speaker").mouseenter();
+});
+function suggestWordAction(actionURL,isNoResults){
+if(isNoResults){
+spk(this,{"m":"suggest1","lk":"om4es7",pt:"Suggest a word Noresults"});
+}
+else{
+spk(this,{"m":"suggest2","lk":"e2r2wp",pt:"Suggest a word"});
+}
+document.getElementById("suggestWord").innerHTML = '<form id=\"gen_web\" action=\"http://'+actionURL+'/contact?Suggestion&z=1\" method=\"post\"><input type=\"hidden\" value=\"General Website\" name=\"category\"><input type=\"hidden\" value=\"1\" name=\"z\"><input type=\"hidden\" value=\"1\" name=\"c\"></form>';
+document.getElementById("gen_web").submit();
+}
+</script>
+<script type="text/javascript">
+if(rsSpellSuggest=="false"){
+visualThesauruslazyOnclick();
+}
+else{
+visualThesaurusOnclick();
+}
+</script>
+<script type="text/javascript">
+$j(document).ready(function(){
+if($j('.mdbt')){
+$j(".mdbt").css("display","block");
+}
+});
+function enablemediabuttons(){
+if(typeof (jQuery)!="undefined"){
+$j(".mdbt").hover(function() {
+$j(".mdbt").css("display","none");
+$j(".hdmd").css("display","block");
+});
+$j(".hdfb").append('<iframe src="//www.facebook.com/plugins/like.php?href=http://dictionary.reference.com/browse/raybans&amp;send=false&amp;ref=dic&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:86px; height:21px;" allowTransparency="true"></iframe>', function() {
+});
+$j(".hpt").append('<a href="http://pinterest.com/pin/create/button/?url=http://dictionary.reference.com/browse/raybans%3Fs%3Dt&media=http://userlogos.org/files/logos/Daggles/dictionarycom.png&description=Dictionary_logo&ver=" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It"/></a>',function(){
+});
+}
+}
+</script>
+<script type="text/javascript">
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'http://rt.legolas-media.com/lgrt?ci=2&ti=1222&pbi=10791';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
+<span style="display:none">
+<script type="text/javascript">
+_qoptions = {
+qacct:"p-51zXP5Cc9sxvQ"
+};
+</script>
+<script type="text/javascript">
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'http://pixel.quantserve.com/seg/p-51zXP5Cc9sxvQ.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
+<script type="text/javascript">
+// DO NOT REMOVE _quantgc function
+function _quantgc(n) {
+var c=document.cookie;if(!c)return '';
+var i=c.indexOf(n+"=");if(-1==i)return '';
+var len=i+n.length+1;
+var end=c.indexOf(";", len);
+return c.substring(len,end<0?c.length:end);
+}
+// Code below is customizable per publisher
+quantSegs = "";
+var _qsegs = _quantgc('__qseg').split('|');
+for (var i=0;i < _qsegs.length;i++) {
+var qArr=_qsegs[i].split("_")
+if (qArr.length>1) { quantSegs += ( qArr[1] + ","); }
+}
+</script>
+</span>
+<span style="display:none">
+<script type="text/javascript">
+_qevents.push( { qacct:"p-51zXP5Cc9sxvQ"} );
+</script>
+<noscript>
+&lt;div style="display: none;"&gt;&lt;img src="//pixel.quantserve.com/pixel/p-51zXP5Cc9sxvQ.gif" height="1" width="1" alt="Quantcast"/&gt;&lt;/div&gt;
+</noscript>
+</span>
+<div id="bkpix" style="display: none; z-index: 1630;"><script type="text/any">document.write('<img src="http://tags.bluekai.com/site/5397" width="1" height="1" />');</script><img src="./Raybans   Define Raybans at Dictionary.com_files/5397" width="1" height="1"></div>
+<script type="text/javascript">
+(function($){
+$.fn.renderbkpixel = function(){
+ghostwriter(
+"bkpix",
+{
+insertType: "append",
+script: { text: "document.write('<img src=\"http://tags.bluekai.com/site/5397\" width=\"1\" height=\"1\" />');" }
+}
+);
+}
+})(jQuery);
+var bkPixLoaded = false;
+$j(document).ready(function(){
+if(!bkPixLoaded){
+bkPixLoaded = true;
+$j("#bkpix").renderbkpixel();
+}
+});
+</script>
+<div id="quantserve" style="height: 0px; width: 0px; z-index: 1625;"><script src="./Raybans   Define Raybans at Dictionary.com_files/quant.js"></script></div>
+<script type="text/javascript">
+(function($){
+$.fn.quantserve = function(){
+ghostwriter(
+"quantserve",
+{
+insertType: "append",
+script: {src: (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js"}
+}
+);
+}
+})(jQuery);
+jQuery(document).ready(function(){
+jQuery("div[id=quantserve]").quantserve();
+});
+</script>
+<script>
+$j("a").filter(function(index){
+var tmp = this.onmousedown;
+this.onmousedown ='';
+$j(this).mousedown(function(e){
+if(this.href!=='' && (this.href.indexOf("reference.com")== -1)){
+var crossDomain = "thesaurus.com|dictionary.com";
+crossDomain = crossDomain.split('|');
+for(var x in crossDomain){
+if((this.href.indexOf(crossDomain[x]) != -1)){
+var src = readCookie("rh");
+var mobc = readCookie("mw");
+if(mobc!=null){
+src=src + "&m=www";
+}
+this.href = appendReferrerHost(this.href,src);
+var pageTracker = _gat._getTrackerByName(); // Gets the default tracker.
+this.href = pageTracker._getLinkerUrl(this.href);
+}
+}
+}
+if("undefined" != typeof(tmp) && null != tmp && "" != tmp)
+{
+tmp.call(this);
+}
+});
+});
+</script>
+<div id="csPixel" style="display: none; z-index: 1620;">
+<noscript>
+&lt;img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6034776&amp;cv=2.0&amp;cj=1" style="display:none" width="0" height="0" alt="" /&gt;
+</noscript>
+<script type="text/javascript">
+var _comscore = _comscore || [];
+_comscore.push({ c1: "2", c2: "6034776",c3:"",c4:(new String(window.location)).replace(/\?.*$/, "") });
+(function($){
+$.fn.renderscsPixel = function(){
+ghostwriter(
+"csPixel",
+{
+insertType: "append",
+script: { text: "document.write('<script src=\"" + (document.location.protocol == "https:" ? "https://sb" : "http://b")+ ".scorecardresearch.com/beacon.js"+"\"><\/script>');" }
+}
+);
+}
+})(jQuery);
+var csPixelLoaded = false;
+$j(document).ready(function(){
+if(!csPixelLoaded){
+csPixelLoaded = true;
+$j("#csPixel").renderscsPixel();
+}
+});
+</script>
+<script type="text/any">document.write('<script src="http://b.scorecardresearch.com/beacon.js"></script>');</script><script src="./Raybans   Define Raybans at Dictionary.com_files/beacon.js"></script></div>
+<script type="text/javascript">
+(function($){
+$.fn.rendervisualthesaurus = function(){
+ghostwriter(
+"visual_the",
+{
+insertType: "append",
+script: { text: "document.write('<scr"+"ipt src=\"http://syndication.visualthesaurus.com/ddc/related.js?lang=en&word=raybans\"><\/scr"+"ipt>');" },
+done:function(){
+$j('#fancybox-left, #fancybox-right').css({'background-image':'url("http://static.sfdict.com/en/i/dictionary/newserp/fancybox_blank.gif")','background-color':'transparent'});
+var images = '';
+var imagesArray = images.split(',');
+$j('.smg').attr('src',imagesArray[0]);
+$j('#imr').css('display','block');
+$j('.qauti').attr('src','http://static.sfdict.com/dictstatic/quotes/images/author_small/default_author.png');
+if(!$j("div").hasClass("_vtad") && daisyPageName == "specialitydictionaries"){
+$j('#visual_the').css('display','none');
+$j(".sep_top").css("border-top","0px");
+}
+}
+}
+);
+}
+})(jQuery);
+jQuery(document).ready(function(){
+if($j("#visual_the").length > 0){
+jQuery("div[id=visual_the]").rendervisualthesaurus();
+}
+});
+</script>
+<script type="text/javascript">
+if(getRadiumCookie()){
+if(rsResultDomain == 'dictionary.reference.com'){
+document.write('<img src="http://rs.gwallet.com/r1/pixel/x4472" width="1" height="1" border="0" alt=""/>');
+}else if(rsResultDomain == 'thesaurus.com'){
+document.write('<img src="http://rs.gwallet.com/r1/pixel/x4473" width="1" height="1" border="0" alt=""/>');
+}else if(rsResultDomain == 'www.reference.com'){
+document.write('<img src="http://rs.gwallet.com/r1/pixel/x4472" width="1" height="1" border="0" alt=""/>');
+}
+}
+</script><img src="http://rs.gwallet.com/r1/pixel/x4472" width="1" height="1" border="0" alt="" style="display: none !important;">
+<script type="text/javascript" lang="javascript">
+function slideshowevent(){
+var img = new Image();
+var url = "http://click.reference.com/track/close?pageName=dic&site=dict";
+img.src = url;
+}
+var modalWindow = {
+parent:"body",
+windowId:null,
+content:null,
+width:null,
+height:null,
+close:function()
+{
+$j(".modal-window").remove();
+$j(".modal-overlay").remove();
+$j('#aud').css("display","inline");
+},
+open:function()
+{
+var modal = "";
+modal += "<div class=\"modal-overlay\"></div>";
+modal += "<div id=\"" + this.windowId + "\" class=\"modal-window\" style=\"width:" + this.width + "px; height:" + this.height + "px; margin-top:-" + (this.height / 2) + "px; margin-left:-" + (this.width / 2) + "px;\">";
+modal += this.content;
+modal += "</div>";
+$j(this.parent).append(modal);
+$j('embed#speaker').attr("wmode","transparent");
+$j('#aud').css("display","none");
+$j(".modal-window").focus();
+$j(".modal-window").append("<a class=\"close-window\"></a>");
+$j(".close-window").click(function(){slideshowevent();modalWindow.close();});
+$j(".modal-overlay").click(function(){slideshowevent();modalWindow.close();});
+}
+};
+var openMyModal = function(source)
+{
+modalWindow.windowId = "myModal";
+modalWindow.width = 975;
+modalWindow.height = 545;
+modalWindow.content = "<iframe id='slidifr' width='975' height='545' frameborder='0' scrolling='no' allowtransparency='true' src='" + source + "'>&lt/iframe>";
+modalWindow.open();
+};
+function slideshowOpen(){
+$j(".icoMr").trigger('click');
+}
+</script>
+<style type="text/css">
+.modal-overlay
+{
+position:fixed;
+top:0;
+right:0;
+bottom:0;
+left:0;
+height:100%;
+width:100%;
+margin:0;
+padding:0;
+background:#000;
+opacity:.85;
+filter: alpha(opacity=85);
+-moz-opacity: 0.85;
+z-index:10001;
+}
+* html .modal-overlay
+{
+position: absolute;
+height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+}
+.modal-window
+{
+position:fixed;
+top:50%;
+left:50%;
+margin:0;
+padding:0;
+z-index:10002;
+}
+* html .modal-window
+{
+position:absolute;
+}
+.close-window {
+position: absolute;
+top: -15px;
+right: -13px;
+width: 30px;
+height: 30px;
+background:transparent url('http://static.sfdict.com/en/i/dictionary/newserp/Sprite_Serp.png') -62px -109px;
+cursor: pointer;
+z-index: 1103;
+}
+</style>
+<div style="margin-left: 200px; top: 40px; z-index: 1615;">
+<p>
+<a href="http://dictionary.reference.com/browse/raybans?s=t#" onclick="openMyModal(&#39;http://dict.reference.com/&#39;); return false;" class="icoMr"></a>
+</p>
+</div>
+<script type="text/javascript">
+$j(document).ready(function(){
+if ($j("#scpromo").length > 0){
+ghostwriter(
+"scpromo",
+{
+insertType: "append",
+script: { text: "document.write('<img src=\"\"/>');" }
+}
+);
+}
+});
+</script>
+<div id="neilsen" style="display: none; z-index: 1610;"> <script src="data:text/javascript,document.write('%3Cimg%20src%3Dhttp%3A%2F%2Fsecure-us.imrworldwide.com%2Fcgi-bin%2Fm%3Fci%3Dus-805928h%26cg%3D0%26cc%3D1%26si%3Dhttp%253A%2F%2Fdictionary.reference.com%2Fbrowse%2Fraybans%253Fs%253Dt%26rp%3Dhttp%253A%2F%2Fdictionary.reference.com%2F%26ts%3Dcompact%26rnd%3D1402540441036%2F%3E')" async="">document.write('<img src=http://secure-us.imrworldwide.com/cgi-bin/m?ci=us-805928h&cg=0&cc=1&si=http%3A//dictionary.reference.com/browse/raybans%3Fs%3Dt&rp=http%3A//dictionary.reference.com/&ts=compact&rnd=1402540441036/>')</script><img src="./Raybans   Define Raybans at Dictionary.com_files/m"></div>
+<script>
+$j(document).ready(function(){
+var url ="http://secure-us.imrworldwide.com/cgi-bin/m?ci=us-805928h&cg=0&cc=1&si="+escape(window.location.href)+"&rp="+escape(document.referrer)+"&ts=compact&rnd="+(new Date()).getTime();
+ghostwriter(
+"neilsen",
+{
+insertType: "append",
+script: { text:"document.write('<img src="+url+"/>')"}
+}
+);
+});
+</script>
+<script>
+$j(".pronset span").first().mousedown(function(){
+if(refreshAdsOnlyonce){
+setTimeout('clicksWithAdRefresh("audio")',20);
+}else{
+setTimeout('clicksWithoutAdRefresh("audio")',20);
+}
+});
+$j(".aud").mousedown(function(){
+if(refreshAdsOnlyonce){
+setTimeout('clicksWithAdRefresh("audio")',20);
+}else{
+setTimeout('clicksWithoutAdRefresh("audio")',20);
+}
+if(false){
+var audprompt = Cookie.getCookie("aud");
+if(audprompt == null){
+$j("#audprompt").css("display","inline-block");
+}
+}
+});
+function clicksWithAdRefresh(target){
+refreshDisplayAds();
+var url = '';
+if(refreshAdsOnlyonce){
+url = 'http://click.reference.com/track/clickInner?pageName=dic&target='+target+'&adRefresh=n&pageviewCount=1&site=dict&ldid=260:1&rnd='+(new Date()).getTime();
+}else{
+url = 'http://click.reference.com/track/clickInner?pageName=dic&target='+target+'&adRefresh=y&pageviewCount=1&site=dict&ldid=260:1&rnd='+(new Date()).getTime();
+}
+var img = new Image();
+img.src = url;
+}
+function clicksWithoutAdRefresh(target){
+var url = 'http://click.reference.com/track/clickInner?pageName=dic&target='+target+'&adRefresh=n&pageviewCount=1&site=dict&ldid=260:1&rnd='+(new Date()).getTime();
+var img = new Image();
+img.src = url;
+}
+$j(".more").click(function(){
+if(refreshAdsOnlyonce){
+clicksWithAdRefresh('expand');
+}else{
+clicksWithoutAdRefresh('expand');
+}
+});
+$j(".less").click(function(){
+if(refreshAdsOnlyonce){
+clicksWithAdRefresh('collapse');
+}else{
+clicksWithoutAdRefresh('collapse');
+}
+});
+$j(".sfav").click(function(){
+if(refreshAdsOnlyonce){
+clicksWithAdRefresh('favorite');
+}else{
+clicksWithoutAdRefresh('favorite');
+}
+});
+$j(".srec").click(function(){
+if(refreshAdsOnlyonce){
+clicksWithAdRefresh('recent');
+}else{
+clicksWithoutAdRefresh('recent');
+}
+});
+if($j(".prmore").length > 0){
+$j(".prmore").click(function(){
+if(refreshAdsOnlyonce){
+clicksWithAdRefresh('expand');
+}else{
+clicksWithoutAdRefresh('expand');
+}
+});
+}
+</script>
+<script type="text/javascript">_detabFirst=false;</script>
+<style type="text/css">
+#dict_header_content img[width="15"] {
+display:none;
+}
+#wdcb{height:25px;width:25px;right:25px !important;}
+#scpromo {
+top:10px;
+left:0px;
+}
+@media screen and (max-width: 1245px)
+{
+#showbuyads{
+display:none !important;
+}
+}
+.seasonlogo{
+background-position: -29px -150px;
+}
+</style>
+<script type="text/javascript">
+$j(document).ready(function(){
+if(daisyPageName == "dic-spell" && typeof(googletag)!="undefined" ){
+if($j("#ss_slf").find("#dcomad_mid_160x600").length ==0){
+$j('#ss_slf').append('<div id="dcomad_mid_160x600"><script type="text/javascript">googletag.cmd.push(function() { googletag.display("dcomad_mid_160x600"); });<\/script></div>');
+}
+}
+if(typeof(UserController)!="undefined"){
+if(UserController.isPremium() && UserController.isLoggedIn()){
+$j("#seasonHdr").css("background","none");
+}
+}
+if($j('#showbuyads').css('display')=='block'){
+$j('#showbuyads').css('display','inline-block');
+}
+});
+if(typeof(_adbackgroundImage)!= 'undefined' && _adbackgroundImage ==""){
+_adbackgroundImage=undefined;
+}
+if(window.location.href.indexOf("www.reference.com/motif") > -1 || window.location.href.indexOf("answers.reference.com") > -1) {
+_detabFirst=false;
+}
+if(typeof $j != 'undefined'){
+$j(document).ready(function(){
+try{
+setTimeout(ghostwriter.flushloadhandlers, 250);
+}catch(e){
+//do nothing
+}})
+}
+function updateRecentCookie(){
+if(Cookie.isEnabled() && window.location.host.indexOf('dictionary')!=-1) {
+var val=Cookie.getCookie("recsrch");
+var checker=Cookie.getCookie("chk_del");
+if(val){
+if(checker == null){
+Cookie.deleteCookie('recsrch','/','.reference.com');
+var exp = new Date();
+exp.setFullYear(exp.getFullYear());
+exp.setMonth(exp.getMonth());
+exp.setDate(exp.getDate()+1);
+exp.setHours(0);
+exp.setMinutes(0);
+var domain= ".reference.com"
+Cookie.setCookie("chk_del", "true", exp, "/", domain);
+}
+}
+}
+}
+updateRecentCookie();
+if(Cookie.isEnabled() && window.location.host.indexOf('thesaurus')!=-1) {
+var bshval=Cookie.getCookie("bsh");
+if(bshval!=''){
+Cookie.deleteCookie('bsh','/','');
+var exp = new Date();
+exp.setFullYear(exp.getFullYear());
+exp.setMonth("11");
+exp.setDate("31");
+exp.setHours(0);
+exp.setMinutes(0);
+var domain= ".thesaurus.com"
+Cookie.setCookie("bsh",bshval, exp, "/", domain);
+}
+}
+</script>
+<script type="text/javascript">
+$j('body').delegate('#dic_result','mousedown',function(){
+pk(this,{"io":"0","m":"1clk","lk":"nn1ov4"});
+});
+</script>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+#wdcb{
+right: 214px !important;
+top: -19px;
+}
+#nfotr
+{
+padding-bottom: 29px;
+}
+</style>
+<script type="text/javascript">
+$j(document).ready(function(){
+if($j("#lr").length && $j("#de").length && $j(".lr_skyad").length)
+{
+var fromTop=$j(".lr_skyad").offset().top;
+var top= 720-fromTop;
+if(top >0)
+{
+$j(".lr_skyad").css({'top':top,'position' :'relative'});
+}
+if(top >0 && (($j("#nfotr").offset().top) < ($j(".lr_skyad").offset().top+$j(".lr_skyad").height())))
+{
+$j("#de").css('height',($j("#nfotr").offset().top +top+200));
+}
+}
+}
+);
+</script>
+<script type="text/javascript">
+(new Image()).src = "http://track.reference.com/webtrack.gif?st=dict&pn=dic&ab=260:1&ldid=0&qr=raybans&lk=1zv0ht|41,k3p087,jwc8dj,crvk6|7,9ex5ke|11,jhm3zj|4,vfp1o9|4,5k1a4a|4&ev=i&ak=1&rf="+encodeURIComponent(document.referrer)+"&cb="+Math.floor((Math.random()*899999999)+100000000);
+</script>
+<script type="text/javascript">
+if(UserController.isPremium()){
+$j('#scpromo').css('display','none');
+$j('#enterleave').css('display','none');
+$j('#seasoncompanion').css('display','none');
+}
+_favoriteQuery = (typeof(_favoriteQuery)!="undefined" && _favoriteQuery!="")?_favoriteQuery:queryURLEncoded;
+if(typeof(Base64) != 'undefined' && Cookie.isEnabled() && Cookie.getCookie("dc")){
+dcCookieClient = Base64.decode(Cookie.getCookie("dc"));
+dcFieldsClient = dcCookieClient.split(';');
+if(dcFieldsClient != null){
+appCoreUsername = dcFieldsClient[0];
+appCoreUserid = dcFieldsClient[6];
+fbUser = dcFieldsClient[7];
+}
+}
+var headerController = function() {
+function generateLoggedInNav() {
+var navigation ="";
+var appUrl= "app.dictionary.com";
+if(!UserController.isPremium()){
+navigation = '<span class="prmsblT"></span><a href="http://'+appUrl+'/users/settings">My Account </a>';
+}else{
+navigation = '<a href="http://'+appUrl+'/users/settings">My Account </a>';
+}
+if(!UserController.isPremium()) {
+navigation += '<a href="http://'+appUrl+'/favorites" style="padding-left:1px;" id="fvlp"><span class="favL"></span><span id="favLink1">' + UserController.getFavNumber() + '</span></a>';
+navigation += '<a href="http://'+appUrl+'/logout?logindest="'+enc(window.location)+' class="hdrlink" id="favLogout">Log Out </a>';
+navigation += '<a onmousedown="return pk(this,{lk:\'1fk8td\',io:\'0\',m:\'hrdupgrd\'})" href="http://'+appUrl+'/signup/premium?logindest="'+enc(window.location)+' class="hdrlink" id="upgd">Upgrade </a>';
+} else {
+navigation += '<a id="fvl" href="http://'+appUrl+'/favorites"><span class="favL"></span><span id="favLink1">' + UserController.getFavNumber() + '</span></a>';
+navigation += '<a id="favLogout" class="hdrlink" href="http://'+appUrl+'/logout?logindest='+enc(window.location)+'">Log Out </a>';
+$j("#wraplogoform").append("<div id=\"prem_symbol1T\"></div>");
+}
+return navigation;
+}
+return {
+regenerateNav : function() {
+return generateLoggedInNav();
+}
+}
+}();
+if(UserController.isLoggedIn()) {
+var header = document.getElementById('tpnvT');
+header.innerHTML = '';
+header.innerHTML = headerController.regenerateNav();
+$j.get('/fav-dyn',{ssouid:appCoreUserid,type:'totalwords',favmod:'on',rnd:Math.floor((Math.random()*899999999)+100000000)},function(data){
+if(data != null && data != ""){
+if(data.indexOf(queryURLEncoded)!=-1){
+$j('#nonfav').attr('id','fav');
+}
+}
+});
+$j(window).scroll(function(){
+$j('.sfav span').text('FAVORITES ' + UserController.getFavNumber() );
+});
+registerBottomFavAction();
+}
+else{
+if(!UserController.isLoggedIn()){
+var hdrTemplate ="";
+var appUrl= "app.dictionary.com";
+hdrTemplate += '<a id="loginHeaderLink" style="padding-right:0px;" rel="nofollow" href="http://'+appUrl+'/login/core?source=header_dict&logindest='+enc(window.location)+'">Log In </a>';
+hdrTemplate += '<span class="bar bar1" style="height: 13px;display: inline-block;position: relative;border-left: 1px solid white;left:1px;top:2px;"></span>';
+hdrTemplate += '<a id="regLink" rel="nofollow" href="http://'+appUrl+'/signup/core?source=header_dict&amp;logindest='+enc(window.location)+'"> Sign Up </a>';
+hdrTemplate += '<span class="bar bar2" style="height: 13px;display: inline-block;position: relative;border-left: 1px solid white;top:2px;"></span>';
+hdrTemplate += '<span class="prmsblT prmsblTn"></span>';
+hdrTemplate += '<a onmousedown="return pk(this,{io:0,m:\'hrdprem\',ec:1,lk:\'bz0r8y\'})" href="http://'+appUrl+'/signup/premium?logindest='+enc(window.location)+'">Premium</a>';
+var headerNav = document.getElementById('tpnvT');
+headerNav.innerHTML = '';
+headerNav.innerHTML = hdrTemplate;
+}
+var favfooter =$j('#bfpu ul');
+if(!$j("#bfpu>ul>li>.flog")){
+favfooter.append('<li style="line-height:14px;">Please <a class=\'flog\'>Login</a> or <a class=\'freg\'>Sign Up</a> to use the Favorites feature</li>');
+}
+registerBottomFavActionForSuperSession();
+$j("#bfpu>ul>li>.flog").attr("href","http://app.dictionary.com/login/core?source=footer&fnCallback=loginuser&callbackAction=showFavWords&domaindest=reference.com"+"&logindest="+ enc(window.location));
+$j("#brpu>ul>li>.flog").attr("href","http://app.dictionary.com/login/core?source=footer&fnCallback=loginuser&callbackAction=showRecent&domaindest=reference.com"+"&logindest="+ enc(window.location));
+$j("#bfpu>ul>li>.freg").attr("href","http://app.dictionary.com/signup/core?source=footer&fnCallback=loginuser&callbackAction=showFavWords&domaindest=reference.com"+"&logindest="+ enc(window.location));
+$j("#brpu>ul>li>.freg").attr("href","http://app.dictionary.com/signup/core?source=footer&fnCallback=loginuser&callbackAction=showRecent&domaindest=reference.com"+"&logindest="+ enc(window.location));
+}
+$j('#fav').empty();
+$j('#nonfav').empty();
+$j('body').delegate('#nonfav','mousedown',function(){
+if(!UserController.isLoggedIn()){
+redirectToAppcoreForSuperSession();
+}else{
+addFavWord(_favoriteQuery);
+}
+});
+if(!showads){
+(function(){
+jQuery("div[id^=Dash]").css("display","none");
+})();
+}
+</script>
+<script type="text/javascript">
+$j(document).ready(function(){
+if(navigator.userAgent.indexOf("iPad")!=-1){
+var url = "http://app.reference.com/api/dash/get/ipadInterstitial/dict_serp_ipadInterstitial?"+ new Date().getTime();
+var json=null;
+var invocation = new XMLHttpRequest();
+invocation.open('GET', url);
+invocation.withCredentials = "true";
+invocation.onload = handler;
+invocation.send();
+function handler(evtXHR)
+{
+if (invocation.readyState == 4)
+{
+if (invocation.status == 200)
+{
+json = JSON.parse(invocation.responseText);
+if(json!=null){
+var ipadbackgroundImage=json.backgroundImage;
+var closeButtonImage=json.closeButtonImage;
+var callToActionButtonImage=json.callToActionButtonImage;
+var bottomOverlayImage=json.bottomOverlayImage;
+var titleText=json.titleText;
+var continueText=json.continueText;
+var alreadyHaveAppText=json.alreadyHaveAppText;
+var titleTextColor=json.titleTextColor;
+var continueTextColor=json.continueTextColor;
+var alreadyHaveAppTextColor=json.alreadyHaveAppTextColor;
+var closeButtonClickAction=json.closeButtonClickAction;
+var callToActionButtonClickAction=json.callToActionButtonClickAction;
+var continueClickAction=json.continueClickAction;
+var alreadyHaveAppClickAction=json.alreadyHaveAppClickAction;
+var interimpressionLinkId=json.impressionLinkId;
+var closeButtonLinkId=json.closeButtonLinkId;
+var callToActionButtonLinkId=json.callToActionButtonLinkId;
+var continueLinkId=json.continueLinkId;
+var alreadyHaveAppLinkId=json.alreadyHaveAppLinkId;
+closeiPadOverlay =function(){
+$j('#ipadoverlay').remove();
+$j("#ipadoverlay").css("display","none");
+};
+logtracking =function(feature){
+if(feature =="getapp"){
+closeiPadOverlay();
+window.open("http://click.reference.com/click/"+callToActionButtonLinkId+"?clksite=dict&clkpage=dic&clkld=260:1&clkorgn=0&clkord=0&clkmod=downld&clkitem=&clkdest="+encodeURIComponent(callToActionButtonClickAction));
+}else if(feature =="continue"){
+closeiPadOverlay();
+spk(this,{lk:continueLinkId,en:'skip',io:'0',b:'skip',tp:'skip',m:'skip',pt:'skip+continue+ipad'});
+}else if(feature =="haveapp"){
+closeiPadOverlay();
+spk(this,{lk:alreadyHaveAppLinkId,en:'hvapp',io:'0',b:'hvapp',tp:'hvapp',m:'hvapp',pt:'already+have+app'});
+}else if(feature =="close"){
+spk(this,{lk:closeButtonLinkId,en:'skip',io:'0',b:'skip',tp:'skip',m:'skip',pt:'skip+continue+ipad'});
+closeiPadOverlay();
+}
+};
+var docHeight = $j(document).height();
+$j("body").append('<div id="ipadoverlay"><meta name="viewport" content="width=device-width,user-scalable=no inline-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" ><div id=\"close\" style=\"float:right\"><a href=\"javascript:void(0);\" onmousedown=\"logtracking(\'close\')\" style=\"text-decoration:none;cursor:pointer\"><img src=\"'+closeButtonImage+'\" style=\"border:medium none\" /></a></div><div id=\"ipadbanner\">'+titleText+'</div><div class=\"ipadoverlay\"> <a href=\"javascript:void(0);\" onmousedown=\"logtracking(\'getapp\')\" class=\"ipadbutton\">Get Our App</a><div class=\"ipadinnerFloat\"> <a href=\"javascript:void(0);\" onmousedown=\"logtracking(\'continue\')\" class=\"ipadskip\">'+continueText+'</a><a href=\"javascript:void(0);\" onmousedown=\"logtracking(\'haveapp\')\" class=\"ipadhave\">'+alreadyHaveAppText+'</a></div></div>');
+$j("#ipadoverlay").css('background','url("'+ipadbackgroundImage+'") top center');
+$j(".ipadoverlay").css('background','url("'+bottomOverlayImage+'") transparent');
+$j(".ipadbutton").css('background','url("'+callToActionButtonImage+'") transparent');
+$j("#ipadoverlay")
+.height(docHeight)
+.css({
+'opacity' : 100,
+'position': 'fixed',
+'top': 0,
+'left': 0,
+'background-color': 'black',
+'background': ipadbackgroundImage,
+'width': '100%',
+'z-index': 10000
+});
+(new Image()).src = "http://track.reference.com/webtrack.gif?st=dict&pn=dic&ab=&ldid=0&qr=raybans&ev=i&lk="+interimpressionLinkId+"&cb="+Math.floor((Math.random()*899999999)+100000000)+"&rf="+encodeURIComponent(document.referrer);
+}
+}
+}
+}
+}
+});
+</script>
+
+
+<div id="fancybox-tmp" style="z-index: 1605;"></div><div id="fancybox-loading" style="z-index: 1600;"><div style="z-index: 1595;"></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title" style="z-index: 1590;"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div></body></html>
